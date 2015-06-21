@@ -1,4 +1,4 @@
-﻿Imports System.Data.OleDb
+﻿Imports System.Net.Mail
 
 Public Module NewMemberModule
 
@@ -47,9 +47,105 @@ Public Module NewMemberModule
     End Function
 
     Public Function WriteMemberHouseholdsToFile(households As List(Of Member_Household), outputPath As String) As Boolean
+        Dim excelRowCount As Integer = 3
+        Dim excelApp As Object
+        Dim excelWorkbook As Object
+        Dim excelWorksheet As Object
+        Try
+            excelApp = CreateObject("Excel.Application")
+            excelApp.Application.Visible = False
+            excelApp.DisplayAlerts = False
+            excelWorkbook = excelApp.Workbooks.Add()
+            excelWorkbook.Sheets(2).Delete()
+            excelWorkbook.Sheets(2).Delete()
+            excelWorkbook.Sheets(1).Text = "Member Tracker Data"
+            excelWorksheet = excelWorkbook.Sheets(1)
+            excelWorksheet.Activate()
+
+            WriteTwoHeaderRowsToExcel(excelWorksheet)
+
+            For Each household As Member_Household In households
+                excelWorksheet.Cells(excelRowCount, 1).Value = household.ID
+                excelWorksheet.Cells(excelRowCount, 2).Value = household.JoinedChurch
+                excelWorksheet.Cells(excelRowCount, 3).Value = household.Address
+                excelWorksheet.Cells(excelRowCount, 4).Value = household.City
+                excelWorksheet.Cells(excelRowCount, 5).Value = household.State
+                excelWorksheet.Cells(excelRowCount, 6).Value = household.ZipCode
+                excelWorksheet.Cells(excelRowCount, 7).Value = household.HomePhone
+                excelWorksheet.Cells(excelRowCount, 8).Value = household.CellPhone
+                excelWorksheet.Cells(excelRowCount, 9).Value = household.EmailAddress
+                excelWorksheet.Cells(excelRowCount, 10).Value = household.PicturePath
+                excelRowCount += 1
+                For Each member As Member In household.Household_Members
+                    excelWorksheet.Cells(2, 2).Value = member.ID
+                    excelWorksheet.Cells(2, 3).Value = member.FirstName
+                    excelWorksheet.Cells(2, 4).Value = member.LastName
+                    excelWorksheet.Cells(2, 5).Value = member.DateOfBirth
+                    excelWorksheet.Cells(2, 6).Value = member.Age
+                    excelWorksheet.Cells(2, 7).Value = member.Spouse_ID
+                    excelWorksheet.Cells(2, 8).Value = member.AnniversaryDate
+                    excelWorksheet.Cells(2, 9).Value = member.Baptized
+                    excelWorksheet.Cells(2, 10).Value = member.Salvation
+                    excelWorksheet.Cells(2, 11).Value = member.ShareInformation
+                    excelWorksheet.Cells(2, 12).Value = member.MinistryTopicInterest
+                    excelWorksheet.Cells(2, 13).Value = member.AttendedNewMemberClass
+                    excelWorksheet.Cells(2, 14).Value = member.NewMemberClassDate
+                    excelRowCount += 1
+                Next
+            Next
+
+            excelApp.SaveAs(outputPath)
+        Catch
+            'No excel installed or other error
+            Return False
+        End Try
+        excelApp.Workbooks.Close()
+        excelApp.Quit()
+        Return True
+    End Function
+
+    Private Sub WriteTwoHeaderRowsToExcel(worksheet As Object)
+        worksheet.Cells(1, 1).Value = HouseHold_A
+        worksheet.Cells(1, 2).Value = HouseHold_B
+        worksheet.Cells(1, 3).Value = HouseHold_C
+        worksheet.Cells(1, 4).Value = HouseHold_D
+        worksheet.Cells(1, 5).Value = HouseHold_E
+        worksheet.Cells(1, 6).Value = HouseHold_F
+        worksheet.Cells(1, 7).Value = HouseHold_G
+        worksheet.Cells(1, 8).Value = HouseHold_H
+        worksheet.Cells(1, 9).Value = HouseHold_I
+        worksheet.Cells(1, 10).Value = HouseHold_J
+
+        worksheet.Cells(2, 2).Value = Member_B
+        worksheet.Cells(2, 3).Value = Member_C
+        worksheet.Cells(2, 4).Value = Member_D
+        worksheet.Cells(2, 5).Value = Member_E
+        worksheet.Cells(2, 6).Value = Member_F
+        worksheet.Cells(2, 7).Value = Member_G
+        worksheet.Cells(2, 8).Value = Member_H
+        worksheet.Cells(2, 9).Value = Member_I
+        worksheet.Cells(2, 10).Value = Member_J
+        worksheet.Cells(2, 11).Value = Member_K
+        worksheet.Cells(2, 12).Value = Member_L
+        worksheet.Cells(2, 13).Value = Member_M
+        worksheet.Cells(2, 14).Value = Member_N
+    End Sub
+
+    Public Function SendEmailToMember(smtpServer As String, smtpPort As String, smtpUsername As String, smtpPassword As String, _
+                                      sendFromEmail As String, sendFromName As String, sendToEmail As String, _
+                                      sendToName As String, messageBody As String, messageSubject As String)
 
 
-        Return False
+        Dim smtpClient As New SmtpClient(smtpServer) With {
+            .Credentials = New Net.NetworkCredential(smtpUsername, smtpPassword), _
+            .EnableSsl = True, _
+            .Port = smtpPort}
+        Dim mail As New MailMessage(New MailAddress(sendFromEmail, sendFromName), New MailAddress(sendToEmail, sendToName))
+        mail.Subject = messageSubject
+        mail.Body = messageBody
+
+        smtpClient.Send(mail)
+        Return True
     End Function
 
 #Region "HouseHoldColumnHeaders"
