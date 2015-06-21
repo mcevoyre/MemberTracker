@@ -38,6 +38,10 @@ Partial Class memberTracker
         Me.ReportsControl1 = New ReportsControl()
         Me.Maintain_Members1 = New Maintain_Members()
         Me.Configuration1 = New Configuration()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoadMembersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveMembersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CustomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.pbBOCC, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMain.SuspendLayout()
@@ -59,7 +63,7 @@ Partial Class memberTracker
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmiConfiguration})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmiConfiguration, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -67,12 +71,12 @@ Partial Class memberTracker
         'tsmiConfiguration
         '
         Me.tsmiConfiguration.Name = "tsmiConfiguration"
-        Me.tsmiConfiguration.Size = New System.Drawing.Size(148, 22)
+        Me.tsmiConfiguration.Size = New System.Drawing.Size(153, 22)
         Me.tsmiConfiguration.Text = "Configuration"
         '
         'MaintainMembersToolStripMenuItem
         '
-        Me.MaintainMembersToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmiAddEdit})
+        Me.MaintainMembersToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadMembersToolStripMenuItem, Me.tsmiAddEdit, Me.SaveMembersToolStripMenuItem})
         Me.MaintainMembersToolStripMenuItem.Name = "MaintainMembersToolStripMenuItem"
         Me.MaintainMembersToolStripMenuItem.Size = New System.Drawing.Size(119, 20)
         Me.MaintainMembersToolStripMenuItem.Text = "Maintain Members"
@@ -85,7 +89,7 @@ Partial Class memberTracker
         '
         'ReportsToolStripMenuItem
         '
-        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NeedsOrientationToolStripMenuItem})
+        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NeedsOrientationToolStripMenuItem, Me.CustomToolStripMenuItem})
         Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
         Me.ReportsToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
         Me.ReportsToolStripMenuItem.Text = "Reports"
@@ -143,11 +147,34 @@ Partial Class memberTracker
         '
         'Configuration1
         '
-        Me.Configuration1.FilePath = "Select File"
         Me.Configuration1.Location = New System.Drawing.Point(3, 16)
         Me.Configuration1.Name = "Configuration1"
         Me.Configuration1.Size = New System.Drawing.Size(296, 91)
         Me.Configuration1.TabIndex = 0
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'LoadMembersToolStripMenuItem
+        '
+        Me.LoadMembersToolStripMenuItem.Name = "LoadMembersToolStripMenuItem"
+        Me.LoadMembersToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LoadMembersToolStripMenuItem.Text = "Load Members"
+        '
+        'SaveMembersToolStripMenuItem
+        '
+        Me.SaveMembersToolStripMenuItem.Name = "SaveMembersToolStripMenuItem"
+        Me.SaveMembersToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveMembersToolStripMenuItem.Text = "Save Members"
+        '
+        'CustomToolStripMenuItem
+        '
+        Me.CustomToolStripMenuItem.Name = "CustomToolStripMenuItem"
+        Me.CustomToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.CustomToolStripMenuItem.Text = "Custom"
         '
         'memberTracker
         '
@@ -183,5 +210,9 @@ Partial Class memberTracker
     Friend WithEvents NeedsOrientationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReportsControl1 As ReportsControl
     Friend WithEvents WelcomeControl1 As WelcomeControl
+    Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LoadMembersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SaveMembersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CustomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

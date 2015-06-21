@@ -8,19 +8,11 @@ Public Module NewMemberModule
         C
     End Enum
 
-    Public Function GetDataTableFromExcel(filePath As String, sheetName As String) As DataTable
+    Public Function GetDataTableFromExcel(filePath As String) As DataTable
         Dim dt As New DataTable
         For i As Integer = 0 To 13
             dt.Columns.Add(i, GetType(String))
         Next
-        'Dim conn As System.Data.OleDb.OleDbConnection
-        'Dim cmd As System.Data.OleDb.OleDbDataAdapter
-        ' conn = New OleDbConnection("provider=Microsoft.Jet.OLEDB.4.0;" & "datasource=" & _
-        '                           filePath & ";Extended Properties=Excel 14.0;")
-        'cmd = New OleDbDataAdapter("Select * From [" & sheetName & "$]", conn)
-        'conn.Open()
-        'cmd.Fill(dt)
-        'conn.Close()
 
         Using fileReader As New FileIO.TextFieldParser(filePath)
             fileReader.SetDelimiters(",")
@@ -53,5 +45,44 @@ Public Module NewMemberModule
 
         Return newMemberHouseholds
     End Function
+
+    Public Function WriteMemberHouseholdsToFile(households As List(Of Member_Household), outputPath As String) As Boolean
+
+
+        Return False
+    End Function
+
+#Region "HouseHoldColumnHeaders"
+    Private Const HouseHold_A As String = "Household_ID"
+    Private Const HouseHold_B As String = "Date Joined Church"
+    Private Const HouseHold_C As String = "Address"
+    Private Const HouseHold_D As String = "City"
+    Private Const HouseHold_E As String = "State"
+    Private Const HouseHold_F As String = "Zip"
+    Private Const HouseHold_G As String = "Home Phone"
+    Private Const HouseHold_H As String = "Cell Phone"
+    Private Const HouseHold_I As String = "Email Address"
+    Private Const HouseHold_J As String = "Picture Path"
+    Private Const HouseHold_K As String = ""
+    Private Const HouseHold_L As String = ""
+    Private Const HouseHold_M As String = ""
+#End Region
+
+#Region "MemberColumnHeaders"
+    Private Const Member_A As String = ""
+    Private Const Member_B As String = "Member_ID"
+    Private Const Member_C As String = "First Name"
+    Private Const Member_D As String = "Last Name"
+    Private Const Member_E As String = "Date of Birth"
+    Private Const Member_F As String = "Age"
+    Private Const Member_G As String = "Spouse_ID"
+    Private Const Member_H As String = "Anniversary Date"
+    Private Const Member_I As String = "Baptized"
+    Private Const Member_J As String = "Received Salvation"
+    Private Const Member_K As String = "Share Information"
+    Private Const Member_L As String = "Ministry Topics"
+    Private Const Member_M As String = "Attended Orientation"
+    Private Const Member_N As String = "Orientation Date"
+#End Region
 
 End Module
