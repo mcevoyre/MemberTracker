@@ -33,7 +33,6 @@ Partial Class MemberControl
         Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.cboSpouse = New System.Windows.Forms.ComboBox()
-        Me.cboMinistryTopics = New System.Windows.Forms.ComboBox()
         Me.dtpDOB = New System.Windows.Forms.DateTimePicker()
         Me.dtpAnniversaryDate = New System.Windows.Forms.DateTimePicker()
         Me.chkAttendedOrientation = New System.Windows.Forms.CheckBox()
@@ -44,6 +43,7 @@ Partial Class MemberControl
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtAge = New System.Windows.Forms.TextBox()
         Me.btnSaveChanges = New System.Windows.Forms.Button()
+        Me.txtMinistryTopics = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -146,15 +146,6 @@ Partial Class MemberControl
         Me.cboSpouse.Size = New System.Drawing.Size(121, 21)
         Me.cboSpouse.TabIndex = 10
         '
-        'cboMinistryTopics
-        '
-        Me.cboMinistryTopics.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboMinistryTopics.FormattingEnabled = True
-        Me.cboMinistryTopics.Location = New System.Drawing.Point(146, 108)
-        Me.cboMinistryTopics.Name = "cboMinistryTopics"
-        Me.cboMinistryTopics.Size = New System.Drawing.Size(145, 21)
-        Me.cboMinistryTopics.TabIndex = 11
-        '
         'dtpDOB
         '
         Me.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
@@ -245,10 +236,18 @@ Partial Class MemberControl
         Me.btnSaveChanges.Text = "Save Changes"
         Me.btnSaveChanges.UseVisualStyleBackColor = True
         '
+        'txtMinistryTopics
+        '
+        Me.txtMinistryTopics.Location = New System.Drawing.Point(146, 108)
+        Me.txtMinistryTopics.Name = "txtMinistryTopics"
+        Me.txtMinistryTopics.Size = New System.Drawing.Size(145, 20)
+        Me.txtMinistryTopics.TabIndex = 23
+        '
         'MemberControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.txtMinistryTopics)
         Me.Controls.Add(Me.btnSaveChanges)
         Me.Controls.Add(Me.txtAge)
         Me.Controls.Add(Me.Label8)
@@ -259,7 +258,6 @@ Partial Class MemberControl
         Me.Controls.Add(Me.chkAttendedOrientation)
         Me.Controls.Add(Me.dtpAnniversaryDate)
         Me.Controls.Add(Me.dtpDOB)
-        Me.Controls.Add(Me.cboMinistryTopics)
         Me.Controls.Add(Me.cboSpouse)
         Me.Controls.Add(Me.txtLastName)
         Me.Controls.Add(Me.txtFirstName)
@@ -288,7 +286,6 @@ Partial Class MemberControl
     Friend WithEvents txtFirstName As System.Windows.Forms.TextBox
     Friend WithEvents txtLastName As System.Windows.Forms.TextBox
     Friend WithEvents cboSpouse As System.Windows.Forms.ComboBox
-    Friend WithEvents cboMinistryTopics As System.Windows.Forms.ComboBox
     Friend WithEvents dtpDOB As System.Windows.Forms.DateTimePicker
     Friend WithEvents dtpAnniversaryDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents chkAttendedOrientation As System.Windows.Forms.CheckBox
@@ -299,5 +296,6 @@ Partial Class MemberControl
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtAge As System.Windows.Forms.TextBox
     Friend WithEvents btnSaveChanges As System.Windows.Forms.Button
+    Friend WithEvents txtMinistryTopics As System.Windows.Forms.TextBox
 
 End Class

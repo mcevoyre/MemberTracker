@@ -13,7 +13,7 @@
         pnlMain.Controls.Clear()
         Maintain_Members1.Dock = DockStyle.Fill
         pnlMain.Controls.Add(Maintain_Members1)
-        If Not (MemberDT.Rows.Count > 0 Or MemberHouseholdList.Count > 0) AndAlso Configuration1.ConfigSet Then
+        If Not (MemberDT.Rows.Count > 0 AndAlso Not IsNothing(MemberHouseholdList)) AndAlso Configuration1.ConfigSet Then
             MemberDT = NewMemberModule.GetDataTableFromExcel(Configuration1.InputPath)
             MemberHouseholdList = NewMemberModule.TranslateDTToListOfMemberHouseholds(MemberDT)
         End If
@@ -32,6 +32,7 @@
     End Sub
 
     Private Sub NeedsOrientationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NeedsOrientationToolStripMenuItem.Click
+        MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
         pnlMain.Controls.Clear()
         ReportsControl1.Dock = DockStyle.Fill
         pnlMain.Controls.Add(ReportsControl1)
@@ -40,6 +41,7 @@
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         If Configuration1.AutoSave Then
+            MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
             If Not IsNothing(Configuration1.InputPath) AndAlso Configuration1.InputPath.Length > 0 Then
                 NewMemberModule.WriteMemberHouseholdsToFile(MemberHouseholdList, Configuration1.InputPath)
             End If
@@ -55,6 +57,7 @@
     End Sub
 
     Private Sub SaveMembersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveMembersToolStripMenuItem.Click
+        MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
         If Not IsNothing(Configuration1.InputPath) AndAlso Configuration1.InputPath.Length > 0 Then
             NewMemberModule.WriteMemberHouseholdsToFile(MemberHouseholdList, Configuration1.InputPath)
         End If

@@ -8,6 +8,10 @@
         Member
     End Enum
 
+    Public Function GetCurrentMemberHouseholdList() As List(Of Member_Household)
+        Return Member_HouseHolds
+    End Function
+
     Public Sub PopulateTree(householdList As List(Of Member_Household))
         TreeView1.Nodes.Clear()
         TreeView1.Nodes.Add(New TreeNode() With {.Text = "Households", .Tag = eNodeLevel.Household_Group})
@@ -18,6 +22,8 @@
                 tempHouseholdNode.Nodes.Add(New TreeNode() With {.Text = member.FirstName & " " & member.LastName, .Tag = member})
             Next
         Next
+        GetTopLevelNode.Expand()
+        Member_HouseHolds = householdList
     End Sub
 
     Private Function GetTopLevelNode() As TreeNode
@@ -37,12 +43,21 @@
                 SplitContainer1.Panel2.Controls.Clear()
                 MemberControl1.Dock = DockStyle.Fill
                 SplitContainer1.Panel2.Controls.Add(MemberControl1)
-                MemberControl1.PassMemberToControl(TreeView1.SelectedNode.Tag)
+                Dim potentialSpouseList As New List(Of Tuple(Of Integer, String))
+                Dim currentMember As Member = TreeView1.SelectedNode.Tag
+                For Each householdMember As Member In CType(TreeView1.SelectedNode.Parent.Tag, Member_Household).Household_Members
+                    If Not householdMember.ID = currentMember.ID Then
+                        potentialSpouseList.Add(New Tuple(Of Integer, String)(householdMember.ID, householdMember.FirstName & " " & householdMember.LastName))
+                    End If
+                Next
+                MemberControl1.PopulateSpouseCBO(potentialSpouseList)
+                MemberControl1.PassMemberToControl(currentMember)
         End Select
 
     End Sub
 
     Private Function FindCurrentNodeLevel() As eNodeLevel
+        If TreeView1.SelectedNode Is Nothing Then Return Nothing
         If TreeView1.SelectedNode.Parent Is Nothing Then
             Return eNodeLevel.Household_Group
         ElseIf TreeView1.SelectedNode.Parent.Parent Is Nothing Then
@@ -65,4 +80,42 @@
 
     End Sub
 
+    Private Sub TreeView1_MouseClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            TreeView1.SelectedNode = e.Node
+            Select Case FindCurrentNodeLevel()
+                Case eNodeLevel.Household_Group
+                    AddMemberToolStripMenuItem.Visible = False
+                    AddHouseholdToolStripMenuItem.Visible = True
+                    AddHouseholdToolStripMenuItem.ShowDropDown()
+                Case eNodeLevel.Household
+                    AddMemberToolStripMenuItem.Visible = True
+                    AddHouseholdToolStripMenuItem.Visible = False
+                    AddMemberToolStripMenuItem.ShowDropDown()
+                Case eNodeLevel.Member
+                    AddMemberToolStripMenuItem.Visible = False
+                    AddHouseholdToolStripMenuItem.Visible = False
+            End Select
+        End If
+    End Sub
+
+    Private Sub AddMemberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddMemberToolStripMenuItem.Click
+        Dim currentHousehold As Member_Household = TreeView1.GetNodeAt(Windows.Forms.Cursor.Position).Tag
+        Dim tempNewMember As New Member()
+        currentHousehold.Household_Members.Add(tempNewMember)
+        Dim newMemberNode As New TreeNode() With {.Text = "New Member", .Tag = tempNewMember}
+        TreeView1.SelectedNode = newMemberNode
+    End Sub
+
+    Private Sub AddHouseholdToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddHouseholdToolStripMenuItem.Click
+        Dim tempNewHousehold As New Member_Household
+        Member_HouseHolds.Add(tempNewHousehold)
+        Dim newHouseholdNode As New TreeNode() With {.Text = "New Household", .Tag = tempNewHousehold}
+        GetTopLevelNode.Nodes.Add(newHouseholdNode)
+        TreeView1.SelectedNode = newHouseholdNode
+    End Sub
+
+    Private Sub MaintainMembersControl_Load(sender As Object, e As EventArgs) Handles Me.Load
+        SplitContainer1.Panel2.Controls.Clear()
+    End Sub
 End Class

@@ -22,6 +22,7 @@ Partial Class Maintain_Members
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Member_1")
         Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Member_2")
         Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Household_1", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2})
@@ -30,12 +31,16 @@ Partial Class Maintain_Members
         Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Members", New System.Windows.Forms.TreeNode() {TreeNode3, TreeNode5})
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
+        Me.csmTree = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddMemberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddHouseholdToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MemberControl1 = New MemberControl()
         Me.HouseholdControl1 = New HouseholdControl()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        Me.csmTree.SuspendLayout()
         Me.SuspendLayout()
         '
         'SplitContainer1
@@ -60,8 +65,10 @@ Partial Class Maintain_Members
         '
         'TreeView1
         '
+        Me.TreeView1.ContextMenuStrip = Me.csmTree
         Me.TreeView1.Cursor = System.Windows.Forms.Cursors.Help
         Me.TreeView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TreeView1.HideSelection = False
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
         TreeNode1.Name = "Node2"
@@ -77,8 +84,29 @@ Partial Class Maintain_Members
         TreeNode6.Name = "Node0"
         TreeNode6.Text = "Members"
         Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode6})
+        Me.TreeView1.ShowNodeToolTips = True
         Me.TreeView1.Size = New System.Drawing.Size(202, 512)
         Me.TreeView1.TabIndex = 0
+        '
+        'csmTree
+        '
+        Me.csmTree.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddMemberToolStripMenuItem, Me.AddHouseholdToolStripMenuItem})
+        Me.csmTree.Name = "csmTree"
+        Me.csmTree.Size = New System.Drawing.Size(158, 48)
+        '
+        'AddMemberToolStripMenuItem
+        '
+        Me.AddMemberToolStripMenuItem.Name = "AddMemberToolStripMenuItem"
+        Me.AddMemberToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.AddMemberToolStripMenuItem.Text = "Add Member"
+        Me.AddMemberToolStripMenuItem.Visible = False
+        '
+        'AddHouseholdToolStripMenuItem
+        '
+        Me.AddHouseholdToolStripMenuItem.Name = "AddHouseholdToolStripMenuItem"
+        Me.AddHouseholdToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.AddHouseholdToolStripMenuItem.Text = "Add Household"
+        Me.AddHouseholdToolStripMenuItem.Visible = False
         '
         'MemberControl1
         '
@@ -105,6 +133,7 @@ Partial Class Maintain_Members
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        Me.csmTree.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -112,5 +141,8 @@ Partial Class Maintain_Members
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
     Friend WithEvents MemberControl1 As MemberControl
     Friend WithEvents HouseholdControl1 As HouseholdControl
+    Friend WithEvents csmTree As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents AddMemberToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AddHouseholdToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

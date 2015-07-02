@@ -1,16 +1,16 @@
 ﻿Public Class Member
-    Public Property ID As String
+    Public Property ID As String = ""
     Public Property Households_ID As Integer
-    Public Property FirstName As String
-    Public Property LastName As String
-    Public Property DateOfBirth As Date
+    Public Property FirstName As String = ""
+    Public Property LastName As String = ""
+    Public Property DateOfBirth As Date = Now
     Public Property Age As Integer
     Public Property Spouse_ID As Integer
-    Public Property AnniversaryDate As Date
+    Public Property AnniversaryDate As Date = Now
     Public Property Baptized As Boolean
     Public Property Salvation As Boolean
     Public Property ShareInformation As Boolean
-    Public Property MinistryTopicInterest As MinistryTopics
+    Public Property MinistryTopicInterest As String = ""
     Public Property AttendedNewMemberClass As Boolean
     Public Property NewMemberClassDate As Nullable(Of Date)
 
@@ -28,7 +28,7 @@
             .FirstName = row(2), _
             .ID = row(1), _
             .LastName = row(3), _
-            .MinistryTopicInterest = [Enum].Parse(GetType(MinistryTopics), row(11)), _
+            .MinistryTopicInterest = row(11), _
             .NewMemberClassDate = If(CBool(row(12)), row(13), Nothing), _
             .Salvation = row(9), _
             .ShareInformation = row(10), _

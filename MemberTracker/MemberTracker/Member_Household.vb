@@ -1,15 +1,15 @@
 ﻿Public Class Member_Household
 
-    Public Property ID As String
-    Public Property JoinedChurch As Date
-    Public Property Address As String
-    Public Property City As String
-    Public Property State As String
-    Public Property ZipCode As String
-    Public Property HomePhone As String
-    Public Property CellPhone As String
-    Public Property EmailAddress As String
-    Public Property PicturePath As String
+    Public Property ID As String = ""
+    Public Property JoinedChurch As Date = Now
+    Public Property Address As String = ""
+    Public Property City As String = ""
+    Public Property State As String = ""
+    Public Property ZipCode As String = ""
+    Public Property HomePhone As String = ""
+    Public Property CellPhone As String = ""
+    Public Property EmailAddress As String = ""
+    Public Property PicturePath As String = ""
     Public Property Household_Members As List(Of Member)
 
     Public Sub Member_Household()

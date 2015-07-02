@@ -3,12 +3,19 @@
     Public Event UpdateCurrentNodeTag(member As Member, household As Member_Household)
     Private _currentMember As Member
 
-    Public Sub PopulateCBOs(spouseDT As DataTable)
-        PopulateSpouseCBO(spouseDT)
-        PopulateMinistryTopicsCBO()
-    End Sub
+    'Public Sub PopulateCBOs(spouseDT As DataTable)
+    '    'PopulateMinistryTopicsCBO()
+    'End Sub
 
-    Private Sub PopulateSpouseCBO(spouseDT As DataTable)
+    Public Sub PopulateSpouseCBO(spouseList As List(Of Tuple(Of Integer, String)))
+        Dim spouseDT As New DataTable
+        spouseDT.Columns.Add("ID")
+        spouseDT.Columns.Add("SpouseName")
+
+        For Each potentialSpouse As Tuple(Of Integer, String) In spouseList
+            spouseDT.Rows.Add(potentialSpouse.Item1, potentialSpouse.Item2)
+        Next
+
         spouseDT.Rows.InsertAt(spouseDT.NewRow, 0)
 
         cboSpouse.DataSource = spouseDT
@@ -16,24 +23,24 @@
         cboSpouse.ValueMember = "ID"
     End Sub
 
-    Private Sub PopulateMinistryTopicsCBO()
-        Dim ministryTopicDT As New DataTable
-        ministryTopicDT.Columns.Add("StringValue")
-        For Each ministryTopic As MinistryTopics In [Enum].GetValues(GetType(MinistryTopics))
-            ministryTopicDT.Rows.Add(ministryTopic.ToString)
-        Next
-        ministryTopicDT.Rows.InsertAt(ministryTopicDT.NewRow, 0)
+    'Private Sub PopulateMinistryTopicsCBO()
+    '    Dim ministryTopicDT As New DataTable
+    '    ministryTopicDT.Columns.Add("StringValue")
+    '    For Each ministryTopic As MinistryTopics In [Enum].GetValues(GetType(MinistryTopics))
+    '        ministryTopicDT.Rows.Add(ministryTopic.ToString)
+    '    Next
+    '    ministryTopicDT.Rows.InsertAt(ministryTopicDT.NewRow, 0)
 
-        cboMinistryTopics.DataSource = ministryTopicDT
-        cboMinistryTopics.DisplayMember = "StringValue" : cboMinistryTopics.ValueMember = "StringValue"
-    End Sub
+    '    cboMinistryTopics.DataSource = ministryTopicDT
+    '    cboMinistryTopics.DisplayMember = "StringValue" : cboMinistryTopics.ValueMember = "StringValue"
+    'End Sub
 
     Public Sub PassMemberToControl(currentMember As Member)
         txtFirstName.Text = currentMember.FirstName
         txtLastName.Text = currentMember.LastName
         dtpDOB.Value = currentMember.DateOfBirth
         txtAge.Text = CInt(DateTime.Now.Subtract(currentMember.DateOfBirth).TotalDays / 365).ToString
-        cboMinistryTopics.SelectedValue = ""
+        txtMinistryTopics.Text = currentMember.MinistryTopicInterest
         If currentMember.Spouse_ID > 0 Then
             chkMarried.Checked = True
             cboSpouse.SelectedValue = currentMember.Spouse_ID
@@ -55,7 +62,7 @@
         tempMember.FirstName = txtFirstName.Text
         tempMember.LastName = txtLastName.Text
         tempMember.DateOfBirth = dtpDOB.Value
-        tempMember.MinistryTopicInterest = cboMinistryTopics.SelectedValue
+        tempMember.MinistryTopicInterest = txtMinistryTopics.Text
         If chkMarried.Checked Then
             tempMember.Spouse_ID = cboSpouse.SelectedValue
             tempMember.AnniversaryDate = dtpAnniversaryDate.Value
