@@ -241,6 +241,7 @@ Partial Class HouseholdControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.Controls.Add(Me.txtHouseID)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.btnSaveChanges)

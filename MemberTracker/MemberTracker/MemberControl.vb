@@ -55,6 +55,8 @@
         End If
         chkPastorContact.Checked = currentMember.HavePastorContact
         txtNotes.Text = currentMember.Notes
+        chkMemberActive.Checked = currentMember.MemberActive
+        chkMemberArchived.Checked = currentMember.MemberArchived
         _currentMember = currentMember
     End Sub
 
@@ -77,6 +79,8 @@
         End If
         tempMember.Notes = txtNotes.Text
         tempMember.HavePastorContact = chkPastorContact.Checked
+        tempMember.MemberActive = chkMemberActive.Checked
+        tempMember.MemberArchived = chkMemberArchived.Checked
         Return tempMember
     End Function
 

@@ -10,7 +10,7 @@ Public Module NewMemberModule
 
     Public Function GetDataTableFromExcel(filePath As String) As DataTable
         Dim dt As New DataTable
-        For i As Integer = 0 To 15
+        For i As Integer = 0 To 17
             dt.Columns.Add(i, GetType(String))
         Next
 
@@ -37,7 +37,7 @@ Public Module NewMemberModule
                 tempHousehold = Member_Household.BuildMemberHouseholdFromRow(row)
             Else
                 tempMember = Member.BuildMemberFromRow(row)
-                tempHousehold.Household_Members.Add(tempMember)
+                If Not tempMember.MemberArchived Then : tempHousehold.Household_Members.Add(tempMember) : End If
             End If
             If Not householdDT.Rows(count)(0).Equals("") Then : newMemberHouseholds.Add(tempHousehold) : End If
             count += 1
@@ -90,6 +90,10 @@ Public Module NewMemberModule
                     excelWorksheet.Cells(2, 12).Value = member.MinistryTopicInterest
                     excelWorksheet.Cells(2, 13).Value = member.AttendedNewMemberClass
                     excelWorksheet.Cells(2, 14).Value = member.NewMemberClassDate
+                    excelWorksheet.Cells(2, 15).Value = member.HavePastorContact
+                    excelWorksheet.Cells(2, 16).Value = member.Notes
+                    excelWorksheet.Cells(2, 17).Value = member.MemberActive
+                    excelWorksheet.Cells(2, 18).Value = member.MemberArchived
                     excelRowCount += 1
                 Next
             Next
@@ -131,6 +135,8 @@ Public Module NewMemberModule
         worksheet.Cells(2, 14).Value = Member_N
         worksheet.Cells(2, 15).Value = Member_O
         worksheet.Cells(2, 16).Value = Member_P
+        worksheet.Cells(2, 17).Value = Member_Q
+        worksheet.Cells(2, 18).Value = Member_R
     End Sub
 
     Public Function SendEmailToMember(smtpServer As String, smtpPort As String, smtpUsername As String, smtpPassword As String, _
@@ -183,6 +189,8 @@ Public Module NewMemberModule
     Private Const Member_N As String = "Orientation Date"
     Private Const Member_O As String = "Have Pastor Contact"
     Private Const Member_P As String = "Notes"
+    Private Const Member_Q As String = "Active"
+    Private Const Member_R As String = "Archived"
 #End Region
 
 End Module

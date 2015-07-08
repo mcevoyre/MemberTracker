@@ -15,6 +15,8 @@
     Public Property NewMemberClassDate As Nullable(Of Date)
     Public Property Notes As String = ""
     Public Property HavePastorContact As Boolean
+    Public Property MemberActive As Boolean
+    Public Property MemberArchived As Boolean
 
     Public Sub Member()
 
@@ -36,7 +38,9 @@
             .ShareInformation = row(10), _
             .Spouse_ID = row(6), _
             .Notes = row(15), _
-            .HavePastorContact = CBool(row(14))}
+            .HavePastorContact = CBool(row(14)), _
+            .MemberActive = CBool(row(16)), _
+            .MemberArchived = CBool(row(17))}
         Return newMember
     End Function
 

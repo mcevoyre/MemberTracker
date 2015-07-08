@@ -46,6 +46,8 @@ Partial Class MemberControl
         Me.txtMinistryTopics = New System.Windows.Forms.TextBox()
         Me.chkPastorContact = New System.Windows.Forms.CheckBox()
         Me.txtNotes = New System.Windows.Forms.TextBox()
+        Me.chkMemberArchived = New System.Windows.Forms.CheckBox()
+        Me.chkMemberActive = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -168,7 +170,7 @@ Partial Class MemberControl
         'chkAttendedOrientation
         '
         Me.chkAttendedOrientation.AutoSize = True
-        Me.chkAttendedOrientation.Location = New System.Drawing.Point(146, 305)
+        Me.chkAttendedOrientation.Location = New System.Drawing.Point(146, 349)
         Me.chkAttendedOrientation.Name = "chkAttendedOrientation"
         Me.chkAttendedOrientation.Size = New System.Drawing.Size(189, 17)
         Me.chkAttendedOrientation.TabIndex = 15
@@ -179,7 +181,7 @@ Partial Class MemberControl
         '
         Me.dtpOrientationDate.Enabled = False
         Me.dtpOrientationDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpOrientationDate.Location = New System.Drawing.Point(146, 328)
+        Me.dtpOrientationDate.Location = New System.Drawing.Point(146, 372)
         Me.dtpOrientationDate.Name = "dtpOrientationDate"
         Me.dtpOrientationDate.Size = New System.Drawing.Size(145, 20)
         Me.dtpOrientationDate.TabIndex = 16
@@ -205,7 +207,7 @@ Partial Class MemberControl
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(74, 334)
+        Me.Label7.Location = New System.Drawing.Point(74, 378)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(66, 13)
         Me.Label7.TabIndex = 19
@@ -231,7 +233,7 @@ Partial Class MemberControl
         '
         'btnSaveChanges
         '
-        Me.btnSaveChanges.Location = New System.Drawing.Point(146, 483)
+        Me.btnSaveChanges.Location = New System.Drawing.Point(146, 527)
         Me.btnSaveChanges.Name = "btnSaveChanges"
         Me.btnSaveChanges.Size = New System.Drawing.Size(145, 23)
         Me.btnSaveChanges.TabIndex = 22
@@ -257,16 +259,39 @@ Partial Class MemberControl
         '
         'txtNotes
         '
-        Me.txtNotes.Location = New System.Drawing.Point(146, 354)
+        Me.txtNotes.Location = New System.Drawing.Point(146, 398)
         Me.txtNotes.Multiline = True
         Me.txtNotes.Name = "txtNotes"
         Me.txtNotes.Size = New System.Drawing.Size(248, 123)
         Me.txtNotes.TabIndex = 25
         '
+        'chkMemberArchived
+        '
+        Me.chkMemberArchived.AutoSize = True
+        Me.chkMemberArchived.Location = New System.Drawing.Point(146, 326)
+        Me.chkMemberArchived.Name = "chkMemberArchived"
+        Me.chkMemberArchived.Size = New System.Drawing.Size(109, 17)
+        Me.chkMemberArchived.TabIndex = 26
+        Me.chkMemberArchived.Text = "Member Archived"
+        Me.chkMemberArchived.UseVisualStyleBackColor = True
+        '
+        'chkMemberActive
+        '
+        Me.chkMemberActive.AutoSize = True
+        Me.chkMemberActive.Location = New System.Drawing.Point(146, 303)
+        Me.chkMemberActive.Name = "chkMemberActive"
+        Me.chkMemberActive.Size = New System.Drawing.Size(97, 17)
+        Me.chkMemberActive.TabIndex = 27
+        Me.chkMemberActive.Text = "Member Active"
+        Me.chkMemberActive.UseVisualStyleBackColor = True
+        '
         'MemberControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
+        Me.Controls.Add(Me.chkMemberActive)
+        Me.Controls.Add(Me.chkMemberArchived)
         Me.Controls.Add(Me.txtNotes)
         Me.Controls.Add(Me.chkPastorContact)
         Me.Controls.Add(Me.txtMinistryTopics)
@@ -292,7 +317,7 @@ Partial Class MemberControl
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "MemberControl"
-        Me.Size = New System.Drawing.Size(397, 513)
+        Me.Size = New System.Drawing.Size(397, 555)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -321,5 +346,7 @@ Partial Class MemberControl
     Friend WithEvents txtMinistryTopics As System.Windows.Forms.TextBox
     Friend WithEvents chkPastorContact As System.Windows.Forms.CheckBox
     Friend WithEvents txtNotes As System.Windows.Forms.TextBox
+    Friend WithEvents chkMemberArchived As System.Windows.Forms.CheckBox
+    Friend WithEvents chkMemberActive As System.Windows.Forms.CheckBox
 
 End Class
