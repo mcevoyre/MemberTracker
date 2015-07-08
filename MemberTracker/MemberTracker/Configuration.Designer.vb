@@ -45,13 +45,16 @@ Partial Class Configuration
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnEmail = New System.Windows.Forms.Button()
+        Me.txtEmailTemplate = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnInput
         '
-        Me.btnInput.Location = New System.Drawing.Point(262, 22)
+        Me.btnInput.Location = New System.Drawing.Point(276, 22)
         Me.btnInput.Name = "btnInput"
         Me.btnInput.Size = New System.Drawing.Size(26, 23)
         Me.btnInput.TabIndex = 1
@@ -61,7 +64,7 @@ Partial Class Configuration
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(41, 27)
+        Me.Label1.Location = New System.Drawing.Point(55, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 2
@@ -70,7 +73,7 @@ Partial Class Configuration
         'txtInputPath
         '
         Me.txtInputPath.Enabled = False
-        Me.txtInputPath.Location = New System.Drawing.Point(94, 19)
+        Me.txtInputPath.Location = New System.Drawing.Point(108, 19)
         Me.txtInputPath.Multiline = True
         Me.txtInputPath.Name = "txtInputPath"
         Me.txtInputPath.Size = New System.Drawing.Size(161, 34)
@@ -80,7 +83,7 @@ Partial Class Configuration
         '
         'btnBackup
         '
-        Me.btnBackup.Location = New System.Drawing.Point(262, 64)
+        Me.btnBackup.Location = New System.Drawing.Point(276, 64)
         Me.btnBackup.Name = "btnBackup"
         Me.btnBackup.Size = New System.Drawing.Size(26, 23)
         Me.btnBackup.TabIndex = 9
@@ -90,7 +93,7 @@ Partial Class Configuration
         'txtBackupPath
         '
         Me.txtBackupPath.Enabled = False
-        Me.txtBackupPath.Location = New System.Drawing.Point(94, 59)
+        Me.txtBackupPath.Location = New System.Drawing.Point(108, 59)
         Me.txtBackupPath.Multiline = True
         Me.txtBackupPath.Name = "txtBackupPath"
         Me.txtBackupPath.Size = New System.Drawing.Size(161, 34)
@@ -101,7 +104,7 @@ Partial Class Configuration
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(4, 69)
+        Me.Label3.Location = New System.Drawing.Point(18, 69)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(84, 13)
         Me.Label3.TabIndex = 7
@@ -109,7 +112,7 @@ Partial Class Configuration
         '
         'btnSaveConfig
         '
-        Me.btnSaveConfig.Location = New System.Drawing.Point(97, 334)
+        Me.btnSaveConfig.Location = New System.Drawing.Point(97, 373)
         Me.btnSaveConfig.Name = "btnSaveConfig"
         Me.btnSaveConfig.Size = New System.Drawing.Size(112, 24)
         Me.btnSaveConfig.TabIndex = 10
@@ -118,6 +121,9 @@ Partial Class Configuration
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnEmail)
+        Me.GroupBox1.Controls.Add(Me.txtEmailTemplate)
+        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.chkSaveOnClose)
         Me.GroupBox1.Controls.Add(Me.chkBackupOnOpen)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -128,7 +134,7 @@ Partial Class Configuration
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(293, 131)
+        Me.GroupBox1.Size = New System.Drawing.Size(310, 170)
         Me.GroupBox1.TabIndex = 11
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "File Configuration"
@@ -136,7 +142,7 @@ Partial Class Configuration
         'chkSaveOnClose
         '
         Me.chkSaveOnClose.AutoSize = True
-        Me.chkSaveOnClose.Location = New System.Drawing.Point(175, 104)
+        Me.chkSaveOnClose.Location = New System.Drawing.Point(175, 142)
         Me.chkSaveOnClose.Name = "chkSaveOnClose"
         Me.chkSaveOnClose.Size = New System.Drawing.Size(82, 17)
         Me.chkSaveOnClose.TabIndex = 11
@@ -146,7 +152,7 @@ Partial Class Configuration
         'chkBackupOnOpen
         '
         Me.chkBackupOnOpen.AutoSize = True
-        Me.chkBackupOnOpen.Location = New System.Drawing.Point(75, 104)
+        Me.chkBackupOnOpen.Location = New System.Drawing.Point(75, 142)
         Me.chkBackupOnOpen.Name = "chkBackupOnOpen"
         Me.chkBackupOnOpen.Size = New System.Drawing.Size(94, 17)
         Me.chkBackupOnOpen.TabIndex = 10
@@ -167,7 +173,7 @@ Partial Class Configuration
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 140)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 179)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(292, 188)
         Me.GroupBox2.TabIndex = 12
@@ -278,6 +284,35 @@ Partial Class Configuration
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "SMTP Server"
         '
+        'btnEmail
+        '
+        Me.btnEmail.Location = New System.Drawing.Point(276, 105)
+        Me.btnEmail.Name = "btnEmail"
+        Me.btnEmail.Size = New System.Drawing.Size(26, 23)
+        Me.btnEmail.TabIndex = 14
+        Me.btnEmail.Text = "..."
+        Me.btnEmail.UseVisualStyleBackColor = True
+        '
+        'txtEmailTemplate
+        '
+        Me.txtEmailTemplate.Enabled = False
+        Me.txtEmailTemplate.Location = New System.Drawing.Point(108, 100)
+        Me.txtEmailTemplate.Multiline = True
+        Me.txtEmailTemplate.Name = "txtEmailTemplate"
+        Me.txtEmailTemplate.Size = New System.Drawing.Size(161, 34)
+        Me.txtEmailTemplate.TabIndex = 13
+        Me.txtEmailTemplate.Text = "Select File"
+        Me.txtEmailTemplate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(4, 110)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(98, 13)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Email Template File"
+        '
         'Configuration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -286,7 +321,7 @@ Partial Class Configuration
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSaveConfig)
         Me.Name = "Configuration"
-        Me.Size = New System.Drawing.Size(311, 373)
+        Me.Size = New System.Drawing.Size(316, 413)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -317,5 +352,8 @@ Partial Class Configuration
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents chkSaveOnClose As System.Windows.Forms.CheckBox
     Friend WithEvents chkBackupOnOpen As System.Windows.Forms.CheckBox
+    Friend WithEvents btnEmail As System.Windows.Forms.Button
+    Friend WithEvents txtEmailTemplate As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 
 End Class

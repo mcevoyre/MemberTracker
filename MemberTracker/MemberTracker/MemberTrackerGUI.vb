@@ -1,4 +1,6 @@
-﻿Public Class memberTracker
+﻿Imports System.IO
+
+Public Class memberTracker
 
     Public Property MemberDT As DataTable
     Public Property MemberHouseholdList As List(Of Member_Household)
@@ -34,9 +36,12 @@
     Private Sub NeedsOrientationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NeedsOrientationToolStripMenuItem.Click
         MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
         pnlMain.Controls.Clear()
-        ReportsControl1.Dock = DockStyle.Fill
-        pnlMain.Controls.Add(ReportsControl1)
-        ReportsControl1.PopulateNeedsOrientationReport(MemberHouseholdList)
+        NeedsOrientationReportControl1.Dock = DockStyle.Fill
+        pnlMain.Controls.Add(NeedsOrientationReportControl1)
+        NeedsOrientationReportControl1.PopulateNeedsOrientationReport(MemberHouseholdList)
+        NeedsOrientationReportControl1.PassEmailTemplateToControl(File.ReadAllText(Configuration1.EmailPath))
+        NeedsOrientationReportControl1.PassEmailServerConfig(Configuration1.SMTPServer, Configuration1.SMTPPort, Configuration1.Username, Configuration1.Password, _
+                                                             Configuration1.SendEmailAddress, Configuration1.SendEmailName)
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click

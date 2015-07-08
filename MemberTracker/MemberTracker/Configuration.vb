@@ -12,6 +12,15 @@ Public Class Configuration
         End Set
     End Property
 
+    Public Property EmailPath As String
+        Get
+            Return txtEmailTemplate.Text
+        End Get
+        Set(value As String)
+            txtEmailTemplate.Text = value
+        End Set
+    End Property
+
     Public Property BackupPath As String
         Get
             Return txtBackupPath.Text
@@ -130,6 +139,8 @@ Public Class Configuration
                 SendEmailAddress = readXML.ReadElementContentAsString()
                 readXML.ReadToFollowing("SendEmailName")
                 SendEmailName = readXML.ReadElementContentAsString()
+                readXML.ReadToFollowing("EmalTemplateFileLocation")
+                EmailPath = readXML.ReadElementContentAsString()
             End Using
             fileStream.Close()
         Catch ex As Exception
@@ -176,6 +187,9 @@ Public Class Configuration
                 writeXML.WriteStartElement("SendEmailName")
                 writeXML.WriteString(txtSendFromName.Text)
                 writeXML.WriteEndElement()
+                writeXML.WriteStartElement("EmalTemplateFileLocation")
+                writeXML.WriteString(txtEmailTemplate.Text)
+                writeXML.WriteEndElement()
 
                 writeXML.WriteEndElement()
             End Using
@@ -196,6 +210,13 @@ Public Class Configuration
         Dim ofd As New FolderBrowserDialog
         If ofd.ShowDialog() = DialogResult.OK Then
             BackupPath = ofd.SelectedPath
+        End If
+    End Sub
+
+    Private Sub btnEmail_Click(sender As Object, e As EventArgs) Handles btnEmail.Click
+        Dim ofd As New OpenFileDialog
+        If ofd.ShowDialog() = DialogResult.OK Then
+            EmailPath = ofd.FileName
         End If
     End Sub
 End Class
