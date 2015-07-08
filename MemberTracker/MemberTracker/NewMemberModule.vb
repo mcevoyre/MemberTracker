@@ -2,15 +2,15 @@
 
 Public Module NewMemberModule
 
-    Public Enum MinistryTopics
-        A
-        B
-        C
-    End Enum
+    'Public Enum MinistryTopics
+    '    A
+    '    B
+    '    C
+    'End Enum
 
     Public Function GetDataTableFromExcel(filePath As String) As DataTable
         Dim dt As New DataTable
-        For i As Integer = 0 To 13
+        For i As Integer = 0 To 15
             dt.Columns.Add(i, GetType(String))
         Next
 
@@ -129,6 +129,8 @@ Public Module NewMemberModule
         worksheet.Cells(2, 12).Value = Member_L
         worksheet.Cells(2, 13).Value = Member_M
         worksheet.Cells(2, 14).Value = Member_N
+        worksheet.Cells(2, 15).Value = Member_O
+        worksheet.Cells(2, 16).Value = Member_P
     End Sub
 
     Public Function SendEmailToMember(smtpServer As String, smtpPort As String, smtpUsername As String, smtpPassword As String, _
@@ -179,6 +181,8 @@ Public Module NewMemberModule
     Private Const Member_L As String = "Ministry Topics"
     Private Const Member_M As String = "Attended Orientation"
     Private Const Member_N As String = "Orientation Date"
+    Private Const Member_O As String = "Have Pastor Contact"
+    Private Const Member_P As String = "Notes"
 #End Region
 
 End Module

@@ -53,7 +53,8 @@
         If currentMember.AttendedNewMemberClass Then
             dtpOrientationDate.Value = currentMember.NewMemberClassDate
         End If
-
+        chkPastorContact.Checked = currentMember.HavePastorContact
+        txtNotes.Text = currentMember.Notes
         _currentMember = currentMember
     End Sub
 
@@ -74,6 +75,8 @@
         If tempMember.AttendedNewMemberClass Then
             tempMember.NewMemberClassDate = dtpOrientationDate.Value
         End If
+        tempMember.Notes = txtNotes.Text
+        tempMember.HavePastorContact = chkPastorContact.Checked
         Return tempMember
     End Function
 

@@ -13,6 +13,8 @@
     Public Property MinistryTopicInterest As String = ""
     Public Property AttendedNewMemberClass As Boolean
     Public Property NewMemberClassDate As Nullable(Of Date)
+    Public Property Notes As String = ""
+    Public Property HavePastorContact As Boolean
 
     Public Sub Member()
 
@@ -32,7 +34,9 @@
             .NewMemberClassDate = If(CBool(row(12)), row(13), Nothing), _
             .Salvation = row(9), _
             .ShareInformation = row(10), _
-            .Spouse_ID = row(6)}
+            .Spouse_ID = row(6), _
+            .Notes = row(15), _
+            .HavePastorContact = CBool(row(14))}
         Return newMember
     End Function
 
