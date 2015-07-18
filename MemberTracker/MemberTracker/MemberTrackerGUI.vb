@@ -34,7 +34,9 @@ Public Class memberTracker
     End Sub
 
     Private Sub NeedsOrientationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NeedsOrientationToolStripMenuItem.Click
-        MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
+        If Not IsNothing(Maintain_Members1.GetCurrentMemberHouseholdList()) Then
+            MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
+        End If
         pnlMain.Controls.Clear()
         NeedsOrientationReportControl1.Dock = DockStyle.Fill
         pnlMain.Controls.Add(NeedsOrientationReportControl1)
@@ -46,7 +48,9 @@ Public Class memberTracker
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         If Configuration1.AutoSave Then
-            MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
+            If Not IsNothing(Maintain_Members1.GetCurrentMemberHouseholdList()) Then
+                MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
+            End If
             If Not IsNothing(Configuration1.InputPath) AndAlso Configuration1.InputPath.Length > 0 Then
                 NewMemberModule.WriteMemberHouseholdsToFile(MemberHouseholdList, Configuration1.InputPath)
             End If
@@ -62,9 +66,21 @@ Public Class memberTracker
     End Sub
 
     Private Sub SaveMembersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveMembersToolStripMenuItem.Click
-        MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
+        If Not IsNothing(Maintain_Members1.GetCurrentMemberHouseholdList()) Then
+            MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
+        End If
         If Not IsNothing(Configuration1.InputPath) AndAlso Configuration1.InputPath.Length > 0 Then
             NewMemberModule.WriteMemberHouseholdsToFile(MemberHouseholdList, Configuration1.InputPath)
         End If
+    End Sub
+
+    Private Sub CustomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomToolStripMenuItem.Click
+        If Not IsNothing(Maintain_Members1.GetCurrentMemberHouseholdList()) Then
+            MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
+        End If
+        pnlMain.Controls.Clear()
+        CustomReportControl1.Dock = DockStyle.Fill
+        pnlMain.Controls.Add(CustomReportControl1)
+        CustomReportControl1.PassMemberHOuseholdToControl(MemberHouseholdList)
     End Sub
 End Class

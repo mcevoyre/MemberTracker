@@ -9,7 +9,7 @@
     End Enum
 
     Public Function GetCurrentMemberHouseholdList() As List(Of Member_Household)
-        Return Member_HouseHolds
+        Return PullMemberHouseholdFromTree()
     End Function
 
     Public Sub PopulateTree(householdList As List(Of Member_Household))
@@ -57,12 +57,15 @@
     End Sub
 
     Private Function FindCurrentNodeLevel() As eNodeLevel
-        If TreeView1.SelectedNode Is Nothing Then Return Nothing
-        If TreeView1.SelectedNode.Parent Is Nothing Then
+        Return FindNodeLevel(TreeView1.SelectedNode)
+    End Function
+
+    Private Function FindNodeLevel(node As TreeNode) As eNodeLevel
+        If node.Parent Is Nothing Then
             Return eNodeLevel.Household_Group
-        ElseIf TreeView1.SelectedNode.Parent.Parent Is Nothing Then
+        ElseIf node.Parent.Parent Is Nothing Then
             Return eNodeLevel.Household
-        ElseIf TreeView1.SelectedNode.Parent.Parent.Parent Is Nothing Then
+        ElseIf node.Parent.Parent.Parent Is Nothing Then
             Return eNodeLevel.Member
         End If
         Return eNodeLevel.Member
@@ -71,9 +74,20 @@
     Private Sub UpdateCurrentNode(Optional member As Member = Nothing, Optional household As Member_Household = Nothing) Handles HouseholdControl1.UpdateCurrentNodeTag, MemberControl1.UpdateCurrentNodeTag
         Select Case FindCurrentNodeLevel()
             Case eNodeLevel.Household
+                Dim currentHousehold As Member_Household = TreeView1.SelectedNode.Tag
+                currentHousehold.Household_Members.Clear()
+                Dim newMemberHouseholdList As New List(Of Member)
+                For Each memberUnderHousehold As TreeNode In TreeView1.SelectedNode.Nodes
+                    newMemberHouseholdList.Add(memberUnderHousehold.Tag)
+                Next
+                household.Household_Members = newMemberHouseholdList
                 TreeView1.SelectedNode.Tag = household
                 TreeView1.SelectedNode.Text = household.ID
             Case eNodeLevel.Member
+                Dim previousNodeTag As Member = TreeView1.SelectedNode.Tag
+                Dim currentNodeMemberHousehold As Member_Household = TreeView1.SelectedNode.Parent.Tag
+                currentNodeMemberHousehold.Household_Members.Remove(previousNodeTag)
+                currentNodeMemberHousehold.Household_Members.Add(member)
                 TreeView1.SelectedNode.Tag = member
                 TreeView1.SelectedNode.Text = member.FirstName & " " & member.LastName
         End Select
@@ -118,4 +132,25 @@
     Private Sub MaintainMembersControl_Load(sender As Object, e As EventArgs) Handles Me.Load
         SplitContainer1.Panel2.Controls.Clear()
     End Sub
+
+    Private Sub Maintain_Members_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
+        Member_HouseHolds = PullMemberHouseholdFromTree()
+    End Sub
+
+    Private Function PullMemberHouseholdFromTree() As List(Of Member_Household)
+        If Not TreeView1.HasChildren Then : Return Nothing : End If
+
+        Dim treeMemberHouseholds As New List(Of Member_Household)
+
+        For Each node As TreeNode In TreeView1.Nodes(0).Nodes
+            Dim currentMemberHousehold As Member_Household = node.Tag
+            currentMemberHousehold.Household_Members.Clear()
+            For Each childNode As TreeNode In node.Nodes
+                currentMemberHousehold.Household_Members.Add(childNode.Tag)
+            Next
+            treeMemberHouseholds.Add(currentMemberHousehold)
+        Next
+
+        Return treeMemberHouseholds
+    End Function
 End Class

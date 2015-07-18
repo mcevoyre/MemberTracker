@@ -137,6 +137,12 @@
     <Compile Include="Configuration.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="CustomReportControl.Designer.vb">
+      <DependentUpon>CustomReportControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CustomReportControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="HouseholdControl.Designer.vb">
       <DependentUpon>HouseholdControl.vb</DependentUpon>
     </Compile>
@@ -180,10 +186,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="NewMemberModule.vb" />
-    <Compile Include="ReportsControl.Designer.vb">
-      <DependentUpon>ReportsControl.vb</DependentUpon>
+    <Compile Include="NeedsOrientationReportControl.Designer.vb">
+      <DependentUpon>NeedsOrientationReportControl.vb</DependentUpon>
     </Compile>
-    <Compile Include="ReportsControl.vb">
+    <Compile Include="NeedsOrientationReportControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="WelcomeControl.Designer.vb">
@@ -196,6 +202,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Configuration.resx">
       <DependentUpon>Configuration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomReportControl.resx">
+      <DependentUpon>CustomReportControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HouseholdControl.resx">
       <DependentUpon>HouseholdControl.vb</DependentUpon>
@@ -215,8 +224,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportsControl.resx">
-      <DependentUpon>ReportsControl.vb</DependentUpon>
+    <EmbeddedResource Include="NeedsOrientationReportControl.resx">
+      <DependentUpon>NeedsOrientationReportControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeControl.resx">
       <DependentUpon>WelcomeControl.vb</DependentUpon>

@@ -46,6 +46,28 @@ Public Module NewMemberModule
         Return newMemberHouseholds
     End Function
 
+    Public Function TranslateMemberHouseholdsToDT(memberhouseholds As List(Of Member_Household)) As DataTable
+        Dim dt As New DataTable
+        For i As Integer = 0 To 17
+            dt.Columns.Add(i, GetType(String))
+        Next
+
+        Dim count As Integer = 0
+        For Each household As Member_Household In memberhouseholds
+            dt.Rows.Add(New Object() {household.ID, household.JoinedChurch, household.Address, household.City, _
+                                      household.State, household.ZipCode, household.HomePhone, household.CellPhone, _
+                                      household.EmailAddress, household.PicturePath, "", "", ""})
+            For Each member As Member In household.Household_Members
+                dt.Rows.Add(New Object() {"", member.ID, member.FirstName, member.LastName, member.DateOfBirth, member.Age, _
+                                          member.Spouse_ID, member.AnniversaryDate, member.Baptized, member.Salvation, member.ShareInformation, _
+                                          member.MinistryTopicInterest, member.AttendedNewMemberClass, member.NewMemberClassDate, _
+                                          member.HavePastorContact, member.Notes, member.MemberActive, member.MemberArchived})
+            Next
+        Next
+
+        Return dt
+    End Function
+
     Public Function WriteMemberHouseholdsToFile(households As List(Of Member_Household), outputPath As String) As Boolean
         Dim excelRowCount As Integer = 3
         Dim excelApp As Object
@@ -139,6 +161,37 @@ Public Module NewMemberModule
         worksheet.Cells(2, 18).Value = Member_R
     End Sub
 
+    Private Sub WriteTwoColumnsToDataTable(householdDT As DataTable)
+        householdDT.Columns.Add(HouseHold_A)
+        householdDT.Columns.Add(HouseHold_B)
+        householdDT.Columns.Add(HouseHold_C)
+        householdDT.Columns.Add(HouseHold_D)
+        householdDT.Columns.Add(HouseHold_E)
+        householdDT.Columns.Add(HouseHold_F)
+        householdDT.Columns.Add(HouseHold_G)
+        householdDT.Columns.Add(HouseHold_H)
+        householdDT.Columns.Add(HouseHold_I)
+        householdDT.Columns.Add(HouseHold_J)
+
+        householdDT.Columns.Add(Member_B)
+        householdDT.Columns.Add(Member_C)
+        householdDT.Columns.Add(Member_D)
+        householdDT.Columns.Add(Member_E)
+        householdDT.Columns.Add(Member_F)
+        householdDT.Columns.Add(Member_G)
+        householdDT.Columns.Add(Member_H)
+        householdDT.Columns.Add(Member_I)
+        householdDT.Columns.Add(Member_J)
+        householdDT.Columns.Add(Member_K)
+        householdDT.Columns.Add(Member_L)
+        householdDT.Columns.Add(Member_M)
+        householdDT.Columns.Add(Member_N)
+        householdDT.Columns.Add(Member_O)
+        householdDT.Columns.Add(Member_P)
+        householdDT.Columns.Add(Member_Q)
+        householdDT.Columns.Add(Member_R)
+    End Sub
+
     Public Function SendEmailToMember(smtpServer As String, smtpPort As String, smtpUsername As String, smtpPassword As String, _
                                       sendFromEmail As String, sendFromName As String, sendToEmail As String, _
                                       sendToName As String, messageBody As String, messageSubject As String)
@@ -148,6 +201,9 @@ Public Module NewMemberModule
             .Credentials = New Net.NetworkCredential(smtpUsername, smtpPassword), _
             .EnableSsl = True, _
             .Port = smtpPort}
+        smtpClient.EnableSsl = False
+        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network
+        'smtpClient.UseDefaultCredentials = False
         Dim mail As New MailMessage(New MailAddress(sendFromEmail, sendFromName), New MailAddress(sendToEmail, sendToName))
         mail.Subject = messageSubject
         mail.Body = messageBody

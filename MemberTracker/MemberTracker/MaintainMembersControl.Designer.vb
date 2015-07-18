@@ -23,12 +23,6 @@ Partial Class Maintain_Members
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Member_1")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Member_2")
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Household_1", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2})
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Member_1")
-        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Household_2", New System.Windows.Forms.TreeNode() {TreeNode4})
-        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Members", New System.Windows.Forms.TreeNode() {TreeNode3, TreeNode5})
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.csmTree = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -71,19 +65,6 @@ Partial Class Maintain_Members
         Me.TreeView1.HideSelection = False
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode1.Name = "Node2"
-        TreeNode1.Text = "Member_1"
-        TreeNode2.Name = "Node3"
-        TreeNode2.Text = "Member_2"
-        TreeNode3.Name = "Node1"
-        TreeNode3.Text = "Household_1"
-        TreeNode4.Name = "Node5"
-        TreeNode4.Text = "Member_1"
-        TreeNode5.Name = "Node4"
-        TreeNode5.Text = "Household_2"
-        TreeNode6.Name = "Node0"
-        TreeNode6.Text = "Members"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode6})
         Me.TreeView1.ShowNodeToolTips = True
         Me.TreeView1.Size = New System.Drawing.Size(202, 512)
         Me.TreeView1.TabIndex = 0
@@ -110,6 +91,7 @@ Partial Class Maintain_Members
         '
         'MemberControl1
         '
+        Me.MemberControl1.AutoScroll = True
         Me.MemberControl1.Location = New System.Drawing.Point(34, 59)
         Me.MemberControl1.Name = "MemberControl1"
         Me.MemberControl1.Size = New System.Drawing.Size(397, 339)
@@ -117,6 +99,7 @@ Partial Class Maintain_Members
         '
         'HouseholdControl1
         '
+        Me.HouseholdControl1.AutoScroll = True
         Me.HouseholdControl1.Location = New System.Drawing.Point(24, 31)
         Me.HouseholdControl1.Name = "HouseholdControl1"
         Me.HouseholdControl1.Size = New System.Drawing.Size(341, 484)
@@ -126,6 +109,7 @@ Partial Class Maintain_Members
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Maintain_Members"
         Me.Size = New System.Drawing.Size(608, 512)

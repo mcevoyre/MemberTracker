@@ -38,6 +38,7 @@ Partial Class memberTracker
         Me.CustomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pbBOCC = New System.Windows.Forms.PictureBox()
         Me.pnlMain = New System.Windows.Forms.Panel()
+        Me.CustomReportControl1 = New CustomReportControl()
         Me.WelcomeControl1 = New WelcomeControl()
         Me.NeedsOrientationReportControl1 = New NeedsOrientationReportControl()
         Me.Maintain_Members1 = New Maintain_Members()
@@ -137,6 +138,7 @@ Partial Class memberTracker
         '
         'pnlMain
         '
+        Me.pnlMain.Controls.Add(Me.CustomReportControl1)
         Me.pnlMain.Controls.Add(Me.WelcomeControl1)
         Me.pnlMain.Controls.Add(Me.NeedsOrientationReportControl1)
         Me.pnlMain.Controls.Add(Me.Maintain_Members1)
@@ -146,6 +148,13 @@ Partial Class memberTracker
         Me.pnlMain.Name = "pnlMain"
         Me.pnlMain.Size = New System.Drawing.Size(784, 414)
         Me.pnlMain.TabIndex = 4
+        '
+        'CustomReportControl1
+        '
+        Me.CustomReportControl1.Location = New System.Drawing.Point(189, 158)
+        Me.CustomReportControl1.Name = "CustomReportControl1"
+        Me.CustomReportControl1.Size = New System.Drawing.Size(558, 304)
+        Me.CustomReportControl1.TabIndex = 4
         '
         'WelcomeControl1
         '
@@ -228,5 +237,6 @@ Partial Class memberTracker
     Friend WithEvents LoadMembersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SaveMembersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CustomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CustomReportControl1 As CustomReportControl
 
 End Class
