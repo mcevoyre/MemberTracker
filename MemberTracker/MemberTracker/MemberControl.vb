@@ -1,6 +1,7 @@
 ﻿Public Class MemberControl
 
     Public Event UpdateCurrentNodeTag(member As Member, household As Member_Household)
+    Public Event DeleteMember(member As Member)
     Private _currentMember As Member
 
     'Public Sub PopulateCBOs(spouseDT As DataTable)
@@ -109,5 +110,9 @@
     Private Sub btnSaveChanges_Click(sender As Object, e As EventArgs) Handles btnSaveChanges.Click
         _currentMember = GetMemberFromControl()
         RaiseEvent UpdateCurrentNodeTag(_currentMember, Nothing)
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        RaiseEvent DeleteMember(GetMemberFromControl())
     End Sub
 End Class

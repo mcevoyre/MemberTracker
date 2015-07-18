@@ -48,6 +48,7 @@ Partial Class MemberControl
         Me.txtNotes = New System.Windows.Forms.TextBox()
         Me.chkMemberArchived = New System.Windows.Forms.CheckBox()
         Me.chkMemberActive = New System.Windows.Forms.CheckBox()
+        Me.btnDelete = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -235,7 +236,7 @@ Partial Class MemberControl
         '
         Me.btnSaveChanges.Location = New System.Drawing.Point(146, 527)
         Me.btnSaveChanges.Name = "btnSaveChanges"
-        Me.btnSaveChanges.Size = New System.Drawing.Size(145, 23)
+        Me.btnSaveChanges.Size = New System.Drawing.Size(121, 23)
         Me.btnSaveChanges.TabIndex = 22
         Me.btnSaveChanges.Text = "Save Changes"
         Me.btnSaveChanges.UseVisualStyleBackColor = True
@@ -285,11 +286,21 @@ Partial Class MemberControl
         Me.chkMemberActive.Text = "Member Active"
         Me.chkMemberActive.UseVisualStyleBackColor = True
         '
+        'btnDelete
+        '
+        Me.btnDelete.Location = New System.Drawing.Point(273, 527)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(105, 23)
+        Me.btnDelete.TabIndex = 28
+        Me.btnDelete.Text = "Delete Member"
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
         'MemberControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
+        Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.chkMemberActive)
         Me.Controls.Add(Me.chkMemberArchived)
         Me.Controls.Add(Me.txtNotes)
@@ -348,5 +359,6 @@ Partial Class MemberControl
     Friend WithEvents txtNotes As System.Windows.Forms.TextBox
     Friend WithEvents chkMemberArchived As System.Windows.Forms.CheckBox
     Friend WithEvents chkMemberActive As System.Windows.Forms.CheckBox
+    Friend WithEvents btnDelete As System.Windows.Forms.Button
 
 End Class

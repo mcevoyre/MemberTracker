@@ -94,6 +94,13 @@
 
     End Sub
 
+    Private Sub DeleteMember(member As Member) Handles MemberControl1.DeleteMember
+        Dim currentHousehold As Member_Household = TreeView1.SelectedNode.Parent.Tag
+        currentHousehold.Household_Members.Remove(TreeView1.SelectedNode.Tag)
+        PopulateTree(Member_HouseHolds)
+        TreeView1.SelectedNode = TreeView1.TopNode
+    End Sub
+
     Private Sub TreeView1_MouseClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick
         If e.Button = Windows.Forms.MouseButtons.Right Then
             TreeView1.SelectedNode = e.Node
