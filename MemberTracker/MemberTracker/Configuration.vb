@@ -1,4 +1,5 @@
 ﻿Imports System.Xml
+Imports System.Configuration
 
 Public Class Configuration
 
@@ -150,7 +151,7 @@ Public Class Configuration
     End Sub
 
     Private Sub btnSaveConfig_Click(sender As Object, e As EventArgs) Handles btnSaveConfig.Click
-        Dim saveXMLLocation As String = "C:\Users\Ryan\Desktop\School Work\Grad School\Summer 2015\SWEN 670\MemberTracker\TestMemberTrackerConfigFile.xml"
+        Dim saveXMLLocation As String = ConfigurationSettings.AppSettings("ConfigurationSaveLocation")
         Dim xmlSettings As New XmlWriterSettings() With {.Indent = True}
         Try
             Dim fileWrite As New IO.StreamWriter(saveXMLLocation)

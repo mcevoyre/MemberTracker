@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Configuration
 
 Public Class memberTracker
 
@@ -26,7 +27,7 @@ Public Class memberTracker
         pnlMain.Controls.Clear()
         WelcomeControl1.Dock = DockStyle.Fill
         pnlMain.Controls.Add(WelcomeControl1)
-        Configuration1.PopulateConfigFromXMLFile("C:\Users\Ryan\Desktop\School Work\Grad School\Summer 2015\SWEN 670\MemberTracker\MemberTrackerConfigFile.xml")
+        Configuration1.PopulateConfigFromXMLFile(ConfigurationSettings.AppSettings("ConfigurationFileLocation"))
         If Configuration1.ConfigSet Then
             MemberDT = NewMemberModule.GetDataTableFromExcel(Configuration1.InputPath)
             MemberHouseholdList = NewMemberModule.TranslateDTToListOfMemberHouseholds(MemberDT)
