@@ -19,7 +19,8 @@
     Public Property MemberArchived As Boolean
 
     Public Sub Member()
-
+        Dim numberGenerator As New Random()
+        Me.ID = numberGenerator.Next(Integer.MinValue, Integer.MaxValue)
     End Sub
 
     Public Shared Function BuildMemberFromRow(row As DataRow) As Member

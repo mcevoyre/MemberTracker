@@ -49,6 +49,8 @@ Partial Class MemberControl
         Me.chkMemberArchived = New System.Windows.Forms.CheckBox()
         Me.chkMemberActive = New System.Windows.Forms.CheckBox()
         Me.btnDelete = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtID = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -295,11 +297,30 @@ Partial Class MemberControl
         Me.btnDelete.Text = "Delete Member"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(105, 401)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(35, 13)
+        Me.Label9.TabIndex = 29
+        Me.Label9.Text = "Notes"
+        '
+        'txtID
+        '
+        Me.txtID.Location = New System.Drawing.Point(378, -1)
+        Me.txtID.Name = "txtID"
+        Me.txtID.Size = New System.Drawing.Size(19, 20)
+        Me.txtID.TabIndex = 30
+        Me.txtID.Visible = False
+        '
         'MemberControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
+        Me.Controls.Add(Me.txtID)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.chkMemberActive)
         Me.Controls.Add(Me.chkMemberArchived)
@@ -360,5 +381,7 @@ Partial Class MemberControl
     Friend WithEvents chkMemberArchived As System.Windows.Forms.CheckBox
     Friend WithEvents chkMemberActive As System.Windows.Forms.CheckBox
     Friend WithEvents btnDelete As System.Windows.Forms.Button
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents txtID As System.Windows.Forms.TextBox
 
 End Class

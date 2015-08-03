@@ -4,10 +4,6 @@
     Public Event DeleteMember(member As Member)
     Private _currentMember As Member
 
-    'Public Sub PopulateCBOs(spouseDT As DataTable)
-    '    'PopulateMinistryTopicsCBO()
-    'End Sub
-
     Public Sub PopulateSpouseCBO(spouseList As List(Of Tuple(Of Integer, String)))
         Dim spouseDT As New DataTable
         spouseDT.Columns.Add("ID")
@@ -24,19 +20,8 @@
         cboSpouse.ValueMember = "ID"
     End Sub
 
-    'Private Sub PopulateMinistryTopicsCBO()
-    '    Dim ministryTopicDT As New DataTable
-    '    ministryTopicDT.Columns.Add("StringValue")
-    '    For Each ministryTopic As MinistryTopics In [Enum].GetValues(GetType(MinistryTopics))
-    '        ministryTopicDT.Rows.Add(ministryTopic.ToString)
-    '    Next
-    '    ministryTopicDT.Rows.InsertAt(ministryTopicDT.NewRow, 0)
-
-    '    cboMinistryTopics.DataSource = ministryTopicDT
-    '    cboMinistryTopics.DisplayMember = "StringValue" : cboMinistryTopics.ValueMember = "StringValue"
-    'End Sub
-
     Public Sub PassMemberToControl(currentMember As Member)
+        txtID.Text = currentMember.ID
         txtFirstName.Text = currentMember.FirstName
         txtLastName.Text = currentMember.LastName
         dtpDOB.Value = currentMember.DateOfBirth
@@ -82,6 +67,7 @@
         tempMember.HavePastorContact = chkPastorContact.Checked
         tempMember.MemberActive = chkMemberActive.Checked
         tempMember.MemberArchived = chkMemberArchived.Checked
+        tempMember.ID = txtID.Text
         Return tempMember
     End Function
 
