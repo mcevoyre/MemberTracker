@@ -10,18 +10,23 @@ Public Module NewMemberModule
 
     Public Function GetDataTableFromExcel(filePath As String) As DataTable
         Dim dt As New DataTable
-        For i As Integer = 0 To 17
-            dt.Columns.Add(i, GetType(String))
-        Next
+        Try
 
-        Using fileReader As New FileIO.TextFieldParser(filePath)
-            fileReader.SetDelimiters(",")
-            Dim row As String()
-            While Not fileReader.EndOfData
-                row = fileReader.ReadFields
-                dt.Rows.Add(row.ToArray)
-            End While
-        End Using
+            For i As Integer = 0 To 17
+                dt.Columns.Add(i, GetType(String))
+            Next
+
+            Using fileReader As New FileIO.TextFieldParser(filePath)
+                fileReader.SetDelimiters(",")
+                Dim row As String()
+                While Not fileReader.EndOfData
+                    row = fileReader.ReadFields
+                    dt.Rows.Add(row.ToArray)
+                End While
+            End Using
+        Catch e As Exception
+
+        End Try
 
         Return dt
     End Function
@@ -201,9 +206,8 @@ Public Module NewMemberModule
             .Credentials = New Net.NetworkCredential(smtpUsername, smtpPassword), _
             .EnableSsl = True, _
             .Port = smtpPort}
-        smtpClient.EnableSsl = False
+
         smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network
-        'smtpClient.UseDefaultCredentials = False
         Dim mail As New MailMessage(New MailAddress(sendFromEmail, sendFromName), New MailAddress(sendToEmail, sendToName))
         mail.Subject = messageSubject
         mail.Body = messageBody

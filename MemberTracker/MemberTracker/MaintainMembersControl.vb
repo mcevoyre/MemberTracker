@@ -121,10 +121,17 @@
     End Sub
 
     Private Sub AddMemberToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddMemberToolStripMenuItem.Click
-        Dim currentHousehold As Member_Household = TreeView1.GetNodeAt(Windows.Forms.Cursor.Position).Tag
+        Dim currentHousehold As Member_Household = TreeView1.SelectedNode.Tag
         Dim tempNewMember As New Member()
-        currentHousehold.Household_Members.Add(tempNewMember)
+        If IsNothing(currentHousehold.Household_Members) Then
+            Dim tempMemberHouseholdList As New List(Of Member)
+            tempMemberHouseholdList.Add(tempNewMember)
+            currentHousehold.Household_Members = tempMemberHouseholdList
+        Else
+            currentHousehold.Household_Members.Add(tempNewMember)
+        End If
         Dim newMemberNode As New TreeNode() With {.Text = "New Member", .Tag = tempNewMember}
+        TreeView1.SelectedNode.Nodes.Add(newMemberNode)
         TreeView1.SelectedNode = newMemberNode
     End Sub
 
@@ -145,7 +152,8 @@
     End Sub
 
     Private Function PullMemberHouseholdFromTree() As List(Of Member_Household)
-        If Not TreeView1.HasChildren Then : Return Nothing : End If
+        If TreeView1.Nodes.Count = 0 Then : Return Nothing : End If
+        If Not TreeView1.Nodes(0).GetNodeCount(True) > 0 Then : Return Nothing : End If
 
         Dim treeMemberHouseholds As New List(Of Member_Household)
 
