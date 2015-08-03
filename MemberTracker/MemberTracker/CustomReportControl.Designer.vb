@@ -23,6 +23,8 @@ Partial Class CustomReportControl
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.btnDeSelectAll = New System.Windows.Forms.Button()
+        Me.btnMoveAll = New System.Windows.Forms.Button()
         Me.chkArchive = New System.Windows.Forms.CheckBox()
         Me.chkActive = New System.Windows.Forms.CheckBox()
         Me.btnToSource = New System.Windows.Forms.Button()
@@ -39,8 +41,6 @@ Partial Class CustomReportControl
         Me.dtpStartDate = New System.Windows.Forms.DateTimePicker()
         Me.btnGenerateReport = New System.Windows.Forms.Button()
         Me.dgvReportOutput = New System.Windows.Forms.DataGridView()
-        Me.btnMoveAll = New System.Windows.Forms.Button()
-        Me.btnDeSelectAll = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -80,6 +80,24 @@ Partial Class CustomReportControl
         Me.SplitContainer1.Size = New System.Drawing.Size(742, 447)
         Me.SplitContainer1.SplitterDistance = 325
         Me.SplitContainer1.TabIndex = 0
+        '
+        'btnDeSelectAll
+        '
+        Me.btnDeSelectAll.Location = New System.Drawing.Point(133, 154)
+        Me.btnDeSelectAll.Name = "btnDeSelectAll"
+        Me.btnDeSelectAll.Size = New System.Drawing.Size(28, 23)
+        Me.btnDeSelectAll.TabIndex = 16
+        Me.btnDeSelectAll.Text = "<<"
+        Me.btnDeSelectAll.UseVisualStyleBackColor = True
+        '
+        'btnMoveAll
+        '
+        Me.btnMoveAll.Location = New System.Drawing.Point(132, 67)
+        Me.btnMoveAll.Name = "btnMoveAll"
+        Me.btnMoveAll.Size = New System.Drawing.Size(28, 23)
+        Me.btnMoveAll.TabIndex = 15
+        Me.btnMoveAll.Text = ">>"
+        Me.btnMoveAll.UseVisualStyleBackColor = True
         '
         'chkArchive
         '
@@ -227,28 +245,13 @@ Partial Class CustomReportControl
         Me.dgvReportOutput.AllowUserToDeleteRows = False
         Me.dgvReportOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReportOutput.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvReportOutput.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.dgvReportOutput.Location = New System.Drawing.Point(0, 0)
         Me.dgvReportOutput.Name = "dgvReportOutput"
+        Me.dgvReportOutput.ReadOnly = True
+        Me.dgvReportOutput.ShowEditingIcon = False
         Me.dgvReportOutput.Size = New System.Drawing.Size(413, 447)
         Me.dgvReportOutput.TabIndex = 0
-        '
-        'btnMoveAll
-        '
-        Me.btnMoveAll.Location = New System.Drawing.Point(132, 67)
-        Me.btnMoveAll.Name = "btnMoveAll"
-        Me.btnMoveAll.Size = New System.Drawing.Size(28, 23)
-        Me.btnMoveAll.TabIndex = 15
-        Me.btnMoveAll.Text = ">>"
-        Me.btnMoveAll.UseVisualStyleBackColor = True
-        '
-        'btnDeSelectAll
-        '
-        Me.btnDeSelectAll.Location = New System.Drawing.Point(133, 154)
-        Me.btnDeSelectAll.Name = "btnDeSelectAll"
-        Me.btnDeSelectAll.Size = New System.Drawing.Size(28, 23)
-        Me.btnDeSelectAll.TabIndex = 16
-        Me.btnDeSelectAll.Text = "<<"
-        Me.btnDeSelectAll.UseVisualStyleBackColor = True
         '
         'CustomReportControl
         '
