@@ -85,7 +85,7 @@ Public Module NewMemberModule
             excelWorkbook = excelApp.Workbooks.Add()
             excelWorkbook.Sheets(2).Delete()
             excelWorkbook.Sheets(2).Delete()
-            excelWorkbook.Sheets(1).Text = "Member Tracker Data"
+            excelWorkbook.Sheets(1).Sheetname = "Member Tracker Data"
             excelWorksheet = excelWorkbook.Sheets(1)
             excelWorksheet.Activate()
 
