@@ -40,8 +40,12 @@
     End Sub
 
     Private Sub txtPictureLocation_TextChanged(sender As Object, e As EventArgs) Handles txtPictureLocation.TextChanged
-        pbHouseholdPhoto.ImageLocation = txtPictureLocation.Text
-        pbHouseholdPhoto.Image = Drawing.Image.FromFile(txtPictureLocation.Text)
+        Try
+            pbHouseholdPhoto.ImageLocation = txtPictureLocation.Text
+            pbHouseholdPhoto.Image = Drawing.Image.FromFile(txtPictureLocation.Text)
+        Catch
+            pbHouseholdPhoto.Image = pbHouseholdPhoto.ErrorImage
+        End Try
     End Sub
 
     Private Sub btnSaveChanges_Click(sender As Object, e As EventArgs) Handles btnSaveChanges.Click
