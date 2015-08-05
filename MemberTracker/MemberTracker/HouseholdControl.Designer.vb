@@ -30,7 +30,6 @@ Partial Class HouseholdControl
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.txtAddress = New System.Windows.Forms.TextBox()
         Me.txtCity = New System.Windows.Forms.TextBox()
         Me.txtState = New System.Windows.Forms.TextBox()
@@ -38,7 +37,6 @@ Partial Class HouseholdControl
         Me.txtHomePhone = New System.Windows.Forms.TextBox()
         Me.txtPictureLocation = New System.Windows.Forms.TextBox()
         Me.txtCellPhone = New System.Windows.Forms.TextBox()
-        Me.dtpJoinedChurch = New System.Windows.Forms.DateTimePicker()
         Me.txtEmailAddress = New System.Windows.Forms.TextBox()
         Me.btnFileSelection = New System.Windows.Forms.Button()
         Me.pbHouseholdPhoto = New System.Windows.Forms.PictureBox()
@@ -51,7 +49,7 @@ Partial Class HouseholdControl
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(67, 79)
+        Me.Label1.Location = New System.Drawing.Point(67, 52)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(45, 13)
         Me.Label1.TabIndex = 0
@@ -60,7 +58,7 @@ Partial Class HouseholdControl
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(88, 116)
+        Me.Label2.Location = New System.Drawing.Point(88, 89)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(24, 13)
         Me.Label2.TabIndex = 1
@@ -69,7 +67,7 @@ Partial Class HouseholdControl
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(80, 142)
+        Me.Label3.Location = New System.Drawing.Point(80, 115)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(32, 13)
         Me.Label3.TabIndex = 2
@@ -78,7 +76,7 @@ Partial Class HouseholdControl
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(62, 168)
+        Me.Label4.Location = New System.Drawing.Point(62, 141)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(50, 13)
         Me.Label4.TabIndex = 3
@@ -87,7 +85,7 @@ Partial Class HouseholdControl
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(43, 194)
+        Me.Label5.Location = New System.Drawing.Point(43, 167)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(69, 13)
         Me.Label5.TabIndex = 4
@@ -96,7 +94,7 @@ Partial Class HouseholdControl
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(54, 220)
+        Me.Label6.Location = New System.Drawing.Point(54, 193)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(58, 13)
         Me.Label6.TabIndex = 5
@@ -105,7 +103,7 @@ Partial Class HouseholdControl
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(80, 246)
+        Me.Label7.Location = New System.Drawing.Point(80, 219)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(32, 13)
         Me.Label7.TabIndex = 6
@@ -114,24 +112,15 @@ Partial Class HouseholdControl
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(28, 272)
+        Me.Label8.Location = New System.Drawing.Point(28, 245)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(84, 13)
         Me.Label8.TabIndex = 7
         Me.Label8.Text = "Picture Location"
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(11, 43)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(101, 13)
-        Me.Label9.TabIndex = 8
-        Me.Label9.Text = "Date Joined Church"
-        '
         'txtAddress
         '
-        Me.txtAddress.Location = New System.Drawing.Point(118, 62)
+        Me.txtAddress.Location = New System.Drawing.Point(118, 35)
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(173, 45)
@@ -139,35 +128,35 @@ Partial Class HouseholdControl
         '
         'txtCity
         '
-        Me.txtCity.Location = New System.Drawing.Point(118, 113)
+        Me.txtCity.Location = New System.Drawing.Point(118, 86)
         Me.txtCity.Name = "txtCity"
         Me.txtCity.Size = New System.Drawing.Size(173, 20)
         Me.txtCity.TabIndex = 10
         '
         'txtState
         '
-        Me.txtState.Location = New System.Drawing.Point(118, 139)
+        Me.txtState.Location = New System.Drawing.Point(118, 112)
         Me.txtState.Name = "txtState"
         Me.txtState.Size = New System.Drawing.Size(173, 20)
         Me.txtState.TabIndex = 11
         '
         'txtZipCode
         '
-        Me.txtZipCode.Location = New System.Drawing.Point(118, 165)
+        Me.txtZipCode.Location = New System.Drawing.Point(118, 138)
         Me.txtZipCode.Name = "txtZipCode"
         Me.txtZipCode.Size = New System.Drawing.Size(173, 20)
         Me.txtZipCode.TabIndex = 12
         '
         'txtHomePhone
         '
-        Me.txtHomePhone.Location = New System.Drawing.Point(118, 191)
+        Me.txtHomePhone.Location = New System.Drawing.Point(118, 164)
         Me.txtHomePhone.Name = "txtHomePhone"
         Me.txtHomePhone.Size = New System.Drawing.Size(173, 20)
         Me.txtHomePhone.TabIndex = 13
         '
         'txtPictureLocation
         '
-        Me.txtPictureLocation.Location = New System.Drawing.Point(118, 269)
+        Me.txtPictureLocation.Location = New System.Drawing.Point(118, 242)
         Me.txtPictureLocation.Multiline = True
         Me.txtPictureLocation.Name = "txtPictureLocation"
         Me.txtPictureLocation.Size = New System.Drawing.Size(173, 45)
@@ -175,29 +164,21 @@ Partial Class HouseholdControl
         '
         'txtCellPhone
         '
-        Me.txtCellPhone.Location = New System.Drawing.Point(118, 217)
+        Me.txtCellPhone.Location = New System.Drawing.Point(118, 190)
         Me.txtCellPhone.Name = "txtCellPhone"
         Me.txtCellPhone.Size = New System.Drawing.Size(173, 20)
         Me.txtCellPhone.TabIndex = 16
         '
-        'dtpJoinedChurch
-        '
-        Me.dtpJoinedChurch.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpJoinedChurch.Location = New System.Drawing.Point(118, 36)
-        Me.dtpJoinedChurch.Name = "dtpJoinedChurch"
-        Me.dtpJoinedChurch.Size = New System.Drawing.Size(173, 20)
-        Me.dtpJoinedChurch.TabIndex = 17
-        '
         'txtEmailAddress
         '
-        Me.txtEmailAddress.Location = New System.Drawing.Point(118, 243)
+        Me.txtEmailAddress.Location = New System.Drawing.Point(118, 216)
         Me.txtEmailAddress.Name = "txtEmailAddress"
         Me.txtEmailAddress.Size = New System.Drawing.Size(173, 20)
         Me.txtEmailAddress.TabIndex = 18
         '
         'btnFileSelection
         '
-        Me.btnFileSelection.Location = New System.Drawing.Point(297, 266)
+        Me.btnFileSelection.Location = New System.Drawing.Point(297, 239)
         Me.btnFileSelection.Name = "btnFileSelection"
         Me.btnFileSelection.Size = New System.Drawing.Size(23, 23)
         Me.btnFileSelection.TabIndex = 19
@@ -209,12 +190,13 @@ Partial Class HouseholdControl
         Me.pbHouseholdPhoto.Location = New System.Drawing.Point(326, 14)
         Me.pbHouseholdPhoto.Name = "pbHouseholdPhoto"
         Me.pbHouseholdPhoto.Size = New System.Drawing.Size(380, 329)
+        Me.pbHouseholdPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.pbHouseholdPhoto.TabIndex = 20
         Me.pbHouseholdPhoto.TabStop = False
         '
         'btnSaveChanges
         '
-        Me.btnSaveChanges.Location = New System.Drawing.Point(118, 320)
+        Me.btnSaveChanges.Location = New System.Drawing.Point(118, 293)
         Me.btnSaveChanges.Name = "btnSaveChanges"
         Me.btnSaveChanges.Size = New System.Drawing.Size(173, 23)
         Me.btnSaveChanges.TabIndex = 23
@@ -248,7 +230,6 @@ Partial Class HouseholdControl
         Me.Controls.Add(Me.pbHouseholdPhoto)
         Me.Controls.Add(Me.btnFileSelection)
         Me.Controls.Add(Me.txtEmailAddress)
-        Me.Controls.Add(Me.dtpJoinedChurch)
         Me.Controls.Add(Me.txtCellPhone)
         Me.Controls.Add(Me.txtPictureLocation)
         Me.Controls.Add(Me.txtHomePhone)
@@ -256,7 +237,6 @@ Partial Class HouseholdControl
         Me.Controls.Add(Me.txtState)
         Me.Controls.Add(Me.txtCity)
         Me.Controls.Add(Me.txtAddress)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -266,7 +246,7 @@ Partial Class HouseholdControl
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "HouseholdControl"
-        Me.Size = New System.Drawing.Size(709, 365)
+        Me.Size = New System.Drawing.Size(709, 359)
         CType(Me.pbHouseholdPhoto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -280,7 +260,6 @@ Partial Class HouseholdControl
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents txtAddress As System.Windows.Forms.TextBox
     Friend WithEvents txtCity As System.Windows.Forms.TextBox
     Friend WithEvents txtState As System.Windows.Forms.TextBox
@@ -288,7 +267,6 @@ Partial Class HouseholdControl
     Friend WithEvents txtHomePhone As System.Windows.Forms.TextBox
     Friend WithEvents txtPictureLocation As System.Windows.Forms.TextBox
     Friend WithEvents txtCellPhone As System.Windows.Forms.TextBox
-    Friend WithEvents dtpJoinedChurch As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtEmailAddress As System.Windows.Forms.TextBox
     Friend WithEvents btnFileSelection As System.Windows.Forms.Button
     Friend WithEvents pbHouseholdPhoto As System.Windows.Forms.PictureBox

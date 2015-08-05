@@ -12,7 +12,7 @@ Public Module NewMemberModule
         Dim dt As New DataTable
         Try
 
-            For i As Integer = 0 To 17
+            For i As Integer = 0 To 18
                 dt.Columns.Add(i, GetType(String))
             Next
 
@@ -53,20 +53,20 @@ Public Module NewMemberModule
 
     Public Function TranslateMemberHouseholdsToDT(memberhouseholds As List(Of Member_Household)) As DataTable
         Dim dt As New DataTable
-        For i As Integer = 0 To 17
+        For i As Integer = 0 To 18
             dt.Columns.Add(i, GetType(String))
         Next
 
         Dim count As Integer = 0
         For Each household As Member_Household In memberhouseholds
-            dt.Rows.Add(New Object() {household.ID, household.JoinedChurch, household.Address, household.City, _
+            dt.Rows.Add(New Object() {household.ID, household.Address, household.City, _
                                       household.State, household.ZipCode, household.HomePhone, household.CellPhone, _
                                       household.EmailAddress, household.PicturePath, "", "", ""})
             For Each member As Member In household.Household_Members
                 dt.Rows.Add(New Object() {"", member.ID, member.FirstName, member.LastName, member.DateOfBirth, member.Age, _
                                           member.Spouse_ID, member.AnniversaryDate, member.Baptized, member.Salvation, member.ShareInformation, _
                                           member.MinistryTopicInterest, member.AttendedNewMemberClass, member.NewMemberClassDate, _
-                                          member.HavePastorContact, member.Notes, member.MemberActive, member.MemberArchived})
+                                          member.HavePastorContact, member.Notes, member.MemberActive, member.MemberArchived, member.JoinedChurch})
             Next
         Next
 
@@ -93,15 +93,14 @@ Public Module NewMemberModule
 
             For Each household As Member_Household In households
                 excelWorksheet.Cells(excelRowCount, 1).Value = household.ID
-                excelWorksheet.Cells(excelRowCount, 2).Value = household.JoinedChurch
-                excelWorksheet.Cells(excelRowCount, 3).Value = household.Address
-                excelWorksheet.Cells(excelRowCount, 4).Value = household.City
-                excelWorksheet.Cells(excelRowCount, 5).Value = household.State
-                excelWorksheet.Cells(excelRowCount, 6).Value = household.ZipCode
-                excelWorksheet.Cells(excelRowCount, 7).Value = household.HomePhone
-                excelWorksheet.Cells(excelRowCount, 8).Value = household.CellPhone
-                excelWorksheet.Cells(excelRowCount, 9).Value = household.EmailAddress
-                excelWorksheet.Cells(excelRowCount, 10).Value = household.PicturePath
+                excelWorksheet.Cells(excelRowCount, 2).Value = household.Address
+                excelWorksheet.Cells(excelRowCount, 3).Value = household.City
+                excelWorksheet.Cells(excelRowCount, 4).Value = household.State
+                excelWorksheet.Cells(excelRowCount, 5).Value = household.ZipCode
+                excelWorksheet.Cells(excelRowCount, 6).Value = household.HomePhone
+                excelWorksheet.Cells(excelRowCount, 7).Value = household.CellPhone
+                excelWorksheet.Cells(excelRowCount, 8).Value = household.EmailAddress
+                excelWorksheet.Cells(excelRowCount, 9).Value = household.PicturePath
                 excelRowCount += 1
                 For Each member As Member In household.Household_Members
                     excelWorksheet.Cells(2, 2).Value = member.ID
@@ -121,6 +120,7 @@ Public Module NewMemberModule
                     excelWorksheet.Cells(2, 16).Value = member.Notes
                     excelWorksheet.Cells(2, 17).Value = member.MemberActive
                     excelWorksheet.Cells(2, 18).Value = member.MemberArchived
+                    excelWorksheet.Cells(2, 19).Value = member.JoinedChurch
                     excelRowCount += 1
                 Next
             Next
@@ -145,7 +145,6 @@ Public Module NewMemberModule
         worksheet.Cells(1, 7).Value = HouseHold_G
         worksheet.Cells(1, 8).Value = HouseHold_H
         worksheet.Cells(1, 9).Value = HouseHold_I
-        worksheet.Cells(1, 10).Value = HouseHold_J
 
         worksheet.Cells(2, 2).Value = Member_B
         worksheet.Cells(2, 3).Value = Member_C
@@ -164,6 +163,7 @@ Public Module NewMemberModule
         worksheet.Cells(2, 16).Value = Member_P
         worksheet.Cells(2, 17).Value = Member_Q
         worksheet.Cells(2, 18).Value = Member_R
+        worksheet.Cells(2, 19).Value = Member_S
     End Sub
 
     Private Sub WriteTwoColumnsToDataTable(householdDT As DataTable)
@@ -195,6 +195,7 @@ Public Module NewMemberModule
         householdDT.Columns.Add(Member_P)
         householdDT.Columns.Add(Member_Q)
         householdDT.Columns.Add(Member_R)
+        householdDT.Columns.Add(Member_S)
     End Sub
 
     Public Function SendEmailToMember(smtpServer As String, smtpPort As String, smtpUsername As String, smtpPassword As String, _
@@ -218,18 +219,17 @@ Public Module NewMemberModule
 
 #Region "HouseHoldColumnHeaders"
     Private Const HouseHold_A As String = "Household_ID"
-    Private Const HouseHold_B As String = "Date Joined Church"
-    Private Const HouseHold_C As String = "Address"
-    Private Const HouseHold_D As String = "City"
-    Private Const HouseHold_E As String = "State"
-    Private Const HouseHold_F As String = "Zip"
-    Private Const HouseHold_G As String = "Home Phone"
-    Private Const HouseHold_H As String = "Cell Phone"
-    Private Const HouseHold_I As String = "Email Address"
-    Private Const HouseHold_J As String = "Picture Path"
+    Private Const HouseHold_B As String = "Address"
+    Private Const HouseHold_C As String = "City"
+    Private Const HouseHold_D As String = "State"
+    Private Const HouseHold_E As String = "Zip"
+    Private Const HouseHold_F As String = "Home Phone"
+    Private Const HouseHold_G As String = "Cell Phone"
+    Private Const HouseHold_H As String = "Email Address"
+    Private Const HouseHold_I As String = "Picture Path"
+    Private Const HouseHold_J As String = ""
     Private Const HouseHold_K As String = ""
     Private Const HouseHold_L As String = ""
-    Private Const HouseHold_M As String = ""
 #End Region
 
 #Region "MemberColumnHeaders"
@@ -251,6 +251,7 @@ Public Module NewMemberModule
     Private Const Member_P As String = "Notes"
     Private Const Member_Q As String = "Active"
     Private Const Member_R As String = "Archived"
+    Private Const Member_S As String = "Date Member Joined Church"
 #End Region
 
 End Module

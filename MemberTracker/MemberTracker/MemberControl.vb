@@ -26,6 +26,7 @@
         txtLastName.Text = currentMember.LastName
         dtpDOB.Value = currentMember.DateOfBirth
         txtAge.Text = CInt(DateTime.Now.Subtract(currentMember.DateOfBirth).TotalDays / 365).ToString
+        dtpJoinedChurch.Value = currentMember.JoinedChurch
         txtMinistryTopics.Text = currentMember.MinistryTopicInterest
         If currentMember.Spouse_ID > 0 Then
             chkMarried.Checked = True
@@ -51,6 +52,7 @@
         tempMember.FirstName = txtFirstName.Text
         tempMember.LastName = txtLastName.Text
         tempMember.DateOfBirth = dtpDOB.Value
+        tempMember.JoinedChurch = dtpJoinedChurch.Value
         tempMember.MinistryTopicInterest = txtMinistryTopics.Text
         If chkMarried.Checked Then
             tempMember.Spouse_ID = cboSpouse.SelectedValue

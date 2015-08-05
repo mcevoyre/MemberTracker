@@ -17,6 +17,7 @@
     Public Property HavePastorContact As Boolean
     Public Property MemberActive As Boolean
     Public Property MemberArchived As Boolean
+    Public Property JoinedChurch As Date = Now
 
     Public Sub Member()
         Dim numberGenerator As New Random()
@@ -41,7 +42,8 @@
             .Notes = row(15), _
             .HavePastorContact = CBool(row(14)), _
             .MemberActive = CBool(row(16)), _
-            .MemberArchived = CBool(row(17))}
+            .MemberArchived = CBool(row(17)), _
+            .JoinedChurch = row(18)}
         Return newMember
     End Function
 

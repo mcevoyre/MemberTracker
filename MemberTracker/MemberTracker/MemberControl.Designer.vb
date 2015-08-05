@@ -51,6 +51,8 @@ Partial Class MemberControl
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtID = New System.Windows.Forms.TextBox()
+        Me.dtpJoinedChurch = New System.Windows.Forms.DateTimePicker()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -83,7 +85,7 @@ Partial Class MemberControl
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(52, 161)
+        Me.Label4.Location = New System.Drawing.Point(52, 193)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(88, 13)
         Me.Label4.TabIndex = 3
@@ -92,7 +94,7 @@ Partial Class MemberControl
         'chkMarried
         '
         Me.chkMarried.AutoSize = True
-        Me.chkMarried.Location = New System.Drawing.Point(146, 135)
+        Me.chkMarried.Location = New System.Drawing.Point(146, 167)
         Me.chkMarried.Name = "chkMarried"
         Me.chkMarried.Size = New System.Drawing.Size(67, 17)
         Me.chkMarried.TabIndex = 4
@@ -102,7 +104,7 @@ Partial Class MemberControl
         'chkBaptized
         '
         Me.chkBaptized.AutoSize = True
-        Me.chkBaptized.Location = New System.Drawing.Point(146, 211)
+        Me.chkBaptized.Location = New System.Drawing.Point(146, 243)
         Me.chkBaptized.Name = "chkBaptized"
         Me.chkBaptized.Size = New System.Drawing.Size(67, 17)
         Me.chkBaptized.TabIndex = 5
@@ -112,7 +114,7 @@ Partial Class MemberControl
         'chkSalvation
         '
         Me.chkSalvation.AutoSize = True
-        Me.chkSalvation.Location = New System.Drawing.Point(146, 234)
+        Me.chkSalvation.Location = New System.Drawing.Point(146, 266)
         Me.chkSalvation.Name = "chkSalvation"
         Me.chkSalvation.Size = New System.Drawing.Size(70, 17)
         Me.chkSalvation.TabIndex = 6
@@ -122,7 +124,7 @@ Partial Class MemberControl
         'chkShareInformation
         '
         Me.chkShareInformation.AutoSize = True
-        Me.chkShareInformation.Location = New System.Drawing.Point(146, 257)
+        Me.chkShareInformation.Location = New System.Drawing.Point(146, 289)
         Me.chkShareInformation.Name = "chkShareInformation"
         Me.chkShareInformation.Size = New System.Drawing.Size(109, 17)
         Me.chkShareInformation.TabIndex = 7
@@ -148,7 +150,7 @@ Partial Class MemberControl
         Me.cboSpouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSpouse.Enabled = False
         Me.cboSpouse.FormattingEnabled = True
-        Me.cboSpouse.Location = New System.Drawing.Point(146, 184)
+        Me.cboSpouse.Location = New System.Drawing.Point(146, 216)
         Me.cboSpouse.Name = "cboSpouse"
         Me.cboSpouse.Size = New System.Drawing.Size(121, 21)
         Me.cboSpouse.TabIndex = 10
@@ -165,7 +167,7 @@ Partial Class MemberControl
         '
         Me.dtpAnniversaryDate.Enabled = False
         Me.dtpAnniversaryDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpAnniversaryDate.Location = New System.Drawing.Point(146, 158)
+        Me.dtpAnniversaryDate.Location = New System.Drawing.Point(146, 190)
         Me.dtpAnniversaryDate.Name = "dtpAnniversaryDate"
         Me.dtpAnniversaryDate.Size = New System.Drawing.Size(145, 20)
         Me.dtpAnniversaryDate.TabIndex = 14
@@ -173,7 +175,7 @@ Partial Class MemberControl
         'chkAttendedOrientation
         '
         Me.chkAttendedOrientation.AutoSize = True
-        Me.chkAttendedOrientation.Location = New System.Drawing.Point(146, 349)
+        Me.chkAttendedOrientation.Location = New System.Drawing.Point(146, 381)
         Me.chkAttendedOrientation.Name = "chkAttendedOrientation"
         Me.chkAttendedOrientation.Size = New System.Drawing.Size(189, 17)
         Me.chkAttendedOrientation.TabIndex = 15
@@ -184,7 +186,7 @@ Partial Class MemberControl
         '
         Me.dtpOrientationDate.Enabled = False
         Me.dtpOrientationDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpOrientationDate.Location = New System.Drawing.Point(146, 372)
+        Me.dtpOrientationDate.Location = New System.Drawing.Point(146, 404)
         Me.dtpOrientationDate.Name = "dtpOrientationDate"
         Me.dtpOrientationDate.Size = New System.Drawing.Size(145, 20)
         Me.dtpOrientationDate.TabIndex = 16
@@ -192,7 +194,7 @@ Partial Class MemberControl
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(1, 111)
+        Me.Label5.Location = New System.Drawing.Point(1, 143)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(139, 13)
         Me.Label5.TabIndex = 17
@@ -201,7 +203,7 @@ Partial Class MemberControl
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(97, 187)
+        Me.Label6.Location = New System.Drawing.Point(97, 219)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(43, 13)
         Me.Label6.TabIndex = 18
@@ -210,7 +212,7 @@ Partial Class MemberControl
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(74, 378)
+        Me.Label7.Location = New System.Drawing.Point(74, 410)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(66, 13)
         Me.Label7.TabIndex = 19
@@ -236,7 +238,7 @@ Partial Class MemberControl
         '
         'btnSaveChanges
         '
-        Me.btnSaveChanges.Location = New System.Drawing.Point(146, 527)
+        Me.btnSaveChanges.Location = New System.Drawing.Point(146, 559)
         Me.btnSaveChanges.Name = "btnSaveChanges"
         Me.btnSaveChanges.Size = New System.Drawing.Size(121, 23)
         Me.btnSaveChanges.TabIndex = 22
@@ -245,7 +247,7 @@ Partial Class MemberControl
         '
         'txtMinistryTopics
         '
-        Me.txtMinistryTopics.Location = New System.Drawing.Point(146, 108)
+        Me.txtMinistryTopics.Location = New System.Drawing.Point(146, 140)
         Me.txtMinistryTopics.Name = "txtMinistryTopics"
         Me.txtMinistryTopics.Size = New System.Drawing.Size(145, 20)
         Me.txtMinistryTopics.TabIndex = 23
@@ -253,7 +255,7 @@ Partial Class MemberControl
         'chkPastorContact
         '
         Me.chkPastorContact.AutoSize = True
-        Me.chkPastorContact.Location = New System.Drawing.Point(146, 280)
+        Me.chkPastorContact.Location = New System.Drawing.Point(146, 312)
         Me.chkPastorContact.Name = "chkPastorContact"
         Me.chkPastorContact.Size = New System.Drawing.Size(125, 17)
         Me.chkPastorContact.TabIndex = 24
@@ -262,7 +264,7 @@ Partial Class MemberControl
         '
         'txtNotes
         '
-        Me.txtNotes.Location = New System.Drawing.Point(146, 398)
+        Me.txtNotes.Location = New System.Drawing.Point(146, 430)
         Me.txtNotes.Multiline = True
         Me.txtNotes.Name = "txtNotes"
         Me.txtNotes.Size = New System.Drawing.Size(248, 123)
@@ -271,7 +273,7 @@ Partial Class MemberControl
         'chkMemberArchived
         '
         Me.chkMemberArchived.AutoSize = True
-        Me.chkMemberArchived.Location = New System.Drawing.Point(146, 326)
+        Me.chkMemberArchived.Location = New System.Drawing.Point(146, 358)
         Me.chkMemberArchived.Name = "chkMemberArchived"
         Me.chkMemberArchived.Size = New System.Drawing.Size(109, 17)
         Me.chkMemberArchived.TabIndex = 26
@@ -281,7 +283,7 @@ Partial Class MemberControl
         'chkMemberActive
         '
         Me.chkMemberActive.AutoSize = True
-        Me.chkMemberActive.Location = New System.Drawing.Point(146, 303)
+        Me.chkMemberActive.Location = New System.Drawing.Point(146, 335)
         Me.chkMemberActive.Name = "chkMemberActive"
         Me.chkMemberActive.Size = New System.Drawing.Size(97, 17)
         Me.chkMemberActive.TabIndex = 27
@@ -290,7 +292,7 @@ Partial Class MemberControl
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(273, 527)
+        Me.btnDelete.Location = New System.Drawing.Point(273, 559)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(105, 23)
         Me.btnDelete.TabIndex = 28
@@ -300,7 +302,7 @@ Partial Class MemberControl
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(105, 401)
+        Me.Label9.Location = New System.Drawing.Point(105, 433)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(35, 13)
         Me.Label9.TabIndex = 29
@@ -314,11 +316,30 @@ Partial Class MemberControl
         Me.txtID.TabIndex = 30
         Me.txtID.Visible = False
         '
+        'dtpJoinedChurch
+        '
+        Me.dtpJoinedChurch.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpJoinedChurch.Location = New System.Drawing.Point(146, 112)
+        Me.dtpJoinedChurch.Name = "dtpJoinedChurch"
+        Me.dtpJoinedChurch.Size = New System.Drawing.Size(145, 20)
+        Me.dtpJoinedChurch.TabIndex = 32
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(39, 118)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(101, 13)
+        Me.Label10.TabIndex = 31
+        Me.Label10.Text = "Date Joined Church"
+        '
         'MemberControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
+        Me.Controls.Add(Me.dtpJoinedChurch)
+        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.btnDelete)
@@ -349,7 +370,7 @@ Partial Class MemberControl
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "MemberControl"
-        Me.Size = New System.Drawing.Size(397, 555)
+        Me.Size = New System.Drawing.Size(397, 589)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -383,5 +404,7 @@ Partial Class MemberControl
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents txtID As System.Windows.Forms.TextBox
+    Friend WithEvents dtpJoinedChurch As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 
 End Class

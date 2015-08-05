@@ -4,7 +4,6 @@
     Private _currentHousehold As Member_Household
 
     Public Sub PassHouseholdToControl(currentHousehold As Member_Household)
-        dtpJoinedChurch.Value = currentHousehold.JoinedChurch
         txtAddress.Text = currentHousehold.Address
         txtCity.Text = currentHousehold.City
         txtState.Text = currentHousehold.State
@@ -19,7 +18,6 @@
 
     Public Function GetHouseholdFromControl() As Member_Household
         Dim tempHousehold As New Member_Household
-        tempHousehold.JoinedChurch = dtpJoinedChurch.Value
         tempHousehold.Address = txtAddress.Text
         tempHousehold.City = txtCity.Text
         tempHousehold.State = txtState.Text
