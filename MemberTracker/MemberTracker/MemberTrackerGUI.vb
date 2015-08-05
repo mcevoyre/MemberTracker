@@ -17,7 +17,7 @@ Public Class memberTracker
         Maintain_Members1.Dock = DockStyle.Fill
         pnlMain.Controls.Add(Maintain_Members1)
         If Not (MemberDT.Rows.Count > 0 AndAlso Not IsNothing(MemberHouseholdList)) AndAlso Configuration1.ConfigSet Then
-            MemberDT = NewMemberModule.GetDataTableFromExcel(Configuration1.InputPath)
+            MemberDT = NewMemberModule.GetDataTableFromExcel(Configuration1.InputPath, Configuration1.AutoBackup, Configuration1.BackupPath)
             MemberHouseholdList = NewMemberModule.TranslateDTToListOfMemberHouseholds(MemberDT)
         End If
         Maintain_Members1.PopulateTree(MemberHouseholdList)
@@ -29,7 +29,7 @@ Public Class memberTracker
         pnlMain.Controls.Add(WelcomeControl1)
         Configuration1.PopulateConfigFromXMLFile(ConfigurationSettings.AppSettings("ConfigurationFileLocation"))
         If Configuration1.ConfigSet Then
-            MemberDT = NewMemberModule.GetDataTableFromExcel(Configuration1.InputPath)
+            MemberDT = NewMemberModule.GetDataTableFromExcel(Configuration1.InputPath, Configuration1.AutoBackup, Configuration1.BackupPath)
             MemberHouseholdList = NewMemberModule.TranslateDTToListOfMemberHouseholds(MemberDT)
         End If
     End Sub
@@ -47,7 +47,7 @@ Public Class memberTracker
                                                              Configuration1.SendEmailAddress, Configuration1.SendEmailName)
     End Sub
 
-    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click, Me.FormClosed
         If Configuration1.AutoSave Then
             If Not IsNothing(Maintain_Members1.GetCurrentMemberHouseholdList()) Then
                 MemberHouseholdList = Maintain_Members1.GetCurrentMemberHouseholdList()
@@ -61,7 +61,7 @@ Public Class memberTracker
 
     Private Sub LoadMembersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadMembersToolStripMenuItem.Click
         If Not IsNothing(Configuration1.InputPath) AndAlso Configuration1.InputPath.Length > 0 Then
-            MemberDT = NewMemberModule.GetDataTableFromExcel(Configuration1.InputPath)
+            MemberDT = NewMemberModule.GetDataTableFromExcel(Configuration1.InputPath, Configuration1.AutoBackup, Configuration1.BackupPath)
             MemberHouseholdList = NewMemberModule.TranslateDTToListOfMemberHouseholds(MemberDT)
         End If
     End Sub

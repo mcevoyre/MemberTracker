@@ -1,14 +1,14 @@
 ﻿Imports System.Net.Mail
+Imports System.IO
 
 Public Module NewMemberModule
 
-    'Public Enum MinistryTopics
-    '    A
-    '    B
-    '    C
-    'End Enum
+    Public Function GetDataTableFromExcel(filePath As String, saveBackup As Boolean, backupPath As String) As DataTable
+        Dim fileName As String = filePath.Split("\")(filePath.Split("\").Count - 1)
+        If saveBackup Then
+            File.Copy(filePath, backupPath & "\" & DateTime.Now.ToString("yyyyMMdd_HHmmss") & "_" & fileName)
+        End If
 
-    Public Function GetDataTableFromExcel(filePath As String) As DataTable
         Dim dt As New DataTable
         Try
 
