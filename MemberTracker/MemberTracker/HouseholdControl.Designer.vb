@@ -33,10 +33,7 @@ Partial Class HouseholdControl
         Me.txtAddress = New System.Windows.Forms.TextBox()
         Me.txtCity = New System.Windows.Forms.TextBox()
         Me.txtState = New System.Windows.Forms.TextBox()
-        Me.txtZipCode = New System.Windows.Forms.TextBox()
-        Me.txtHomePhone = New System.Windows.Forms.TextBox()
         Me.txtPictureLocation = New System.Windows.Forms.TextBox()
-        Me.txtCellPhone = New System.Windows.Forms.TextBox()
         Me.txtEmailAddress = New System.Windows.Forms.TextBox()
         Me.btnFileSelection = New System.Windows.Forms.Button()
         Me.pbHouseholdPhoto = New System.Windows.Forms.PictureBox()
@@ -44,6 +41,9 @@ Partial Class HouseholdControl
         Me.txtHouseID = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.btnDelete = New System.Windows.Forms.Button()
+        Me.txtHomePhone = New System.Windows.Forms.MaskedTextBox()
+        Me.txtCellPhone = New System.Windows.Forms.MaskedTextBox()
+        Me.txtZipCode = New System.Windows.Forms.MaskedTextBox()
         CType(Me.pbHouseholdPhoto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -141,20 +141,6 @@ Partial Class HouseholdControl
         Me.txtState.Size = New System.Drawing.Size(173, 20)
         Me.txtState.TabIndex = 11
         '
-        'txtZipCode
-        '
-        Me.txtZipCode.Location = New System.Drawing.Point(118, 138)
-        Me.txtZipCode.Name = "txtZipCode"
-        Me.txtZipCode.Size = New System.Drawing.Size(173, 20)
-        Me.txtZipCode.TabIndex = 12
-        '
-        'txtHomePhone
-        '
-        Me.txtHomePhone.Location = New System.Drawing.Point(118, 164)
-        Me.txtHomePhone.Name = "txtHomePhone"
-        Me.txtHomePhone.Size = New System.Drawing.Size(173, 20)
-        Me.txtHomePhone.TabIndex = 13
-        '
         'txtPictureLocation
         '
         Me.txtPictureLocation.Location = New System.Drawing.Point(118, 242)
@@ -162,13 +148,6 @@ Partial Class HouseholdControl
         Me.txtPictureLocation.Name = "txtPictureLocation"
         Me.txtPictureLocation.Size = New System.Drawing.Size(173, 45)
         Me.txtPictureLocation.TabIndex = 15
-        '
-        'txtCellPhone
-        '
-        Me.txtCellPhone.Location = New System.Drawing.Point(118, 190)
-        Me.txtCellPhone.Name = "txtCellPhone"
-        Me.txtCellPhone.Size = New System.Drawing.Size(173, 20)
-        Me.txtCellPhone.TabIndex = 16
         '
         'txtEmailAddress
         '
@@ -229,11 +208,38 @@ Partial Class HouseholdControl
         Me.btnDelete.Text = "Delete Household"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
+        'txtHomePhone
+        '
+        Me.txtHomePhone.Location = New System.Drawing.Point(118, 164)
+        Me.txtHomePhone.Mask = "(999) 000-0000"
+        Me.txtHomePhone.Name = "txtHomePhone"
+        Me.txtHomePhone.Size = New System.Drawing.Size(173, 20)
+        Me.txtHomePhone.TabIndex = 27
+        '
+        'txtCellPhone
+        '
+        Me.txtCellPhone.Location = New System.Drawing.Point(118, 190)
+        Me.txtCellPhone.Mask = "(999) 000-0000"
+        Me.txtCellPhone.Name = "txtCellPhone"
+        Me.txtCellPhone.Size = New System.Drawing.Size(173, 20)
+        Me.txtCellPhone.TabIndex = 28
+        '
+        'txtZipCode
+        '
+        Me.txtZipCode.Location = New System.Drawing.Point(118, 138)
+        Me.txtZipCode.Mask = "00000-9999"
+        Me.txtZipCode.Name = "txtZipCode"
+        Me.txtZipCode.Size = New System.Drawing.Size(173, 20)
+        Me.txtZipCode.TabIndex = 29
+        '
         'HouseholdControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
+        Me.Controls.Add(Me.txtZipCode)
+        Me.Controls.Add(Me.txtCellPhone)
+        Me.Controls.Add(Me.txtHomePhone)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.txtHouseID)
         Me.Controls.Add(Me.Label10)
@@ -241,10 +247,7 @@ Partial Class HouseholdControl
         Me.Controls.Add(Me.pbHouseholdPhoto)
         Me.Controls.Add(Me.btnFileSelection)
         Me.Controls.Add(Me.txtEmailAddress)
-        Me.Controls.Add(Me.txtCellPhone)
         Me.Controls.Add(Me.txtPictureLocation)
-        Me.Controls.Add(Me.txtHomePhone)
-        Me.Controls.Add(Me.txtZipCode)
         Me.Controls.Add(Me.txtState)
         Me.Controls.Add(Me.txtCity)
         Me.Controls.Add(Me.txtAddress)
@@ -274,10 +277,7 @@ Partial Class HouseholdControl
     Friend WithEvents txtAddress As System.Windows.Forms.TextBox
     Friend WithEvents txtCity As System.Windows.Forms.TextBox
     Friend WithEvents txtState As System.Windows.Forms.TextBox
-    Friend WithEvents txtZipCode As System.Windows.Forms.TextBox
-    Friend WithEvents txtHomePhone As System.Windows.Forms.TextBox
     Friend WithEvents txtPictureLocation As System.Windows.Forms.TextBox
-    Friend WithEvents txtCellPhone As System.Windows.Forms.TextBox
     Friend WithEvents txtEmailAddress As System.Windows.Forms.TextBox
     Friend WithEvents btnFileSelection As System.Windows.Forms.Button
     Friend WithEvents pbHouseholdPhoto As System.Windows.Forms.PictureBox
@@ -285,5 +285,8 @@ Partial Class HouseholdControl
     Friend WithEvents txtHouseID As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents btnDelete As System.Windows.Forms.Button
+    Friend WithEvents txtHomePhone As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txtCellPhone As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txtZipCode As System.Windows.Forms.MaskedTextBox
 
 End Class

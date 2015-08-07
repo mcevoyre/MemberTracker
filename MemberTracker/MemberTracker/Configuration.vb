@@ -202,6 +202,7 @@ Public Class Configuration
 
     Private Sub btnInput_Click(sender As Object, e As EventArgs) Handles btnInput.Click
         Dim ofd As New OpenFileDialog
+        ofd.Filter = "Comma Separated Value Files|*.csv"
         If ofd.ShowDialog() = DialogResult.OK Then
             InputPath = ofd.FileName
         End If
@@ -216,6 +217,7 @@ Public Class Configuration
 
     Private Sub btnEmail_Click(sender As Object, e As EventArgs) Handles btnEmail.Click
         Dim ofd As New OpenFileDialog
+        ofd.Filter = "Text Files|*.txt"
         If ofd.ShowDialog() = DialogResult.OK Then
             EmailPath = ofd.FileName
         End If

@@ -33,6 +33,7 @@
 
     Private Sub btnFileSelection_Click(sender As Object, e As EventArgs) Handles btnFileSelection.Click
         Dim ofd As New OpenFileDialog
+        ofd.Filter = "Picture Files|*.png;*.jpg;*.bmp;*.gif;*.jpeg"
         If ofd.ShowDialog = DialogResult.OK Then
             txtPictureLocation.Text = ofd.FileName
         End If
@@ -55,6 +56,15 @@
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         If MessageBox.Show("Household and associated members will be permanently deleted. Press OK to proceed or Cancel to quit.", "Are you sure?", MessageBoxButtons.OKCancel) = DialogResult.OK Then
             RaiseEvent DeleteHousehold(GetHouseholdFromControl())
+        End If
+    End Sub
+
+    Private Sub txtEmailAddress_TextChanged(sender As Object, e As EventArgs) Handles txtEmailAddress.TextChanged
+        If txtEmailAddress.Text.Contains(" ") Then
+            RemoveHandler txtEmailAddress.TextChanged, AddressOf txtEmailAddress_TextChanged
+            txtEmailAddress.Text = String.Join("", txtEmailAddress.Text.Split(" "))
+            AddHandler txtEmailAddress.TextChanged, AddressOf txtEmailAddress_TextChanged
+            txtEmailAddress.Select(txtEmailAddress.TextLength, 0)
         End If
     End Sub
 End Class

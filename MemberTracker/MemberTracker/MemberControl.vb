@@ -105,4 +105,11 @@
             RaiseEvent DeleteMember(GetMemberFromControl())
         End If
     End Sub
+
+    Private Sub MemberControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dtpAnniversaryDate.MaxDate = DateTime.Now
+        dtpDOB.MaxDate = DateTime.Now
+        dtpJoinedChurch.MaxDate = DateTime.Now
+        dtpOrientationDate.MaxDate = DateTime.Now
+    End Sub
 End Class
