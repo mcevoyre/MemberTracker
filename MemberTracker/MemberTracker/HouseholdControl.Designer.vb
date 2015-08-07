@@ -170,7 +170,7 @@ Partial Class HouseholdControl
         Me.pbHouseholdPhoto.Location = New System.Drawing.Point(326, 14)
         Me.pbHouseholdPhoto.Name = "pbHouseholdPhoto"
         Me.pbHouseholdPhoto.Size = New System.Drawing.Size(380, 329)
-        Me.pbHouseholdPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.pbHouseholdPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbHouseholdPhoto.TabIndex = 20
         Me.pbHouseholdPhoto.TabStop = False
         '
