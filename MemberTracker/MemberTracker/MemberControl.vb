@@ -101,6 +101,8 @@
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        RaiseEvent DeleteMember(GetMemberFromControl())
+        If MessageBox.Show("Member will be permanently deleted. Press OK to proceed or Cancel to quit.", "Are you sure?", MessageBoxButtons.OKCancel) = DialogResult.OK Then
+            RaiseEvent DeleteMember(GetMemberFromControl())
+        End If
     End Sub
 End Class

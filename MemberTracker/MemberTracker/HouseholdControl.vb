@@ -1,6 +1,7 @@
 ﻿Public Class HouseholdControl
 
     Public Event UpdateCurrentNodeTag(member As Member, household As Member_Household)
+    Public Event DeleteHousehold(household As Member_Household)
     Private _currentHousehold As Member_Household
 
     Public Sub PassHouseholdToControl(currentHousehold As Member_Household)
@@ -49,5 +50,11 @@
     Private Sub btnSaveChanges_Click(sender As Object, e As EventArgs) Handles btnSaveChanges.Click
         _currentHousehold = GetHouseholdFromControl()
         RaiseEvent UpdateCurrentNodeTag(Nothing, _currentHousehold)
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        If MessageBox.Show("Household and associated members will be permanently deleted. Press OK to proceed or Cancel to quit.", "Are you sure?", MessageBoxButtons.OKCancel) = DialogResult.OK Then
+            RaiseEvent DeleteHousehold(GetHouseholdFromControl())
+        End If
     End Sub
 End Class

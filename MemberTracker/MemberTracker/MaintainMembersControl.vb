@@ -101,6 +101,17 @@
         TreeView1.SelectedNode = TreeView1.TopNode
     End Sub
 
+    Private Sub DeleteHousehold(household As Member_Household) Handles HouseholdControl1.DeleteHousehold
+        For Each householdInList As Member_Household In Member_HouseHolds
+            If householdInList.ID.Equals(household.ID) Then
+                Member_HouseHolds.Remove(householdInList)
+                Exit For
+            End If
+        Next
+        PopulateTree(Member_HouseHolds)
+        TreeView1.SelectedNode = TreeView1.TopNode
+    End Sub
+
     Private Sub TreeView1_MouseClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick
         If e.Button = Windows.Forms.MouseButtons.Right Then
             TreeView1.SelectedNode = e.Node

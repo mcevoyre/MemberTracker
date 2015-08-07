@@ -43,6 +43,7 @@ Partial Class HouseholdControl
         Me.btnSaveChanges = New System.Windows.Forms.Button()
         Me.txtHouseID = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.btnDelete = New System.Windows.Forms.Button()
         CType(Me.pbHouseholdPhoto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -198,9 +199,9 @@ Partial Class HouseholdControl
         '
         Me.btnSaveChanges.Location = New System.Drawing.Point(118, 293)
         Me.btnSaveChanges.Name = "btnSaveChanges"
-        Me.btnSaveChanges.Size = New System.Drawing.Size(173, 23)
+        Me.btnSaveChanges.Size = New System.Drawing.Size(81, 34)
         Me.btnSaveChanges.TabIndex = 23
-        Me.btnSaveChanges.Text = "Save Changes"
+        Me.btnSaveChanges.Text = "Save Household"
         Me.btnSaveChanges.UseVisualStyleBackColor = True
         '
         'txtHouseID
@@ -219,11 +220,21 @@ Partial Class HouseholdControl
         Me.Label10.TabIndex = 24
         Me.Label10.Text = "Household Name"
         '
+        'btnDelete
+        '
+        Me.btnDelete.Location = New System.Drawing.Point(206, 293)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(85, 34)
+        Me.btnDelete.TabIndex = 26
+        Me.btnDelete.Text = "Delete Household"
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
         'HouseholdControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
+        Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.txtHouseID)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.btnSaveChanges)
@@ -273,5 +284,6 @@ Partial Class HouseholdControl
     Friend WithEvents btnSaveChanges As System.Windows.Forms.Button
     Friend WithEvents txtHouseID As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents btnDelete As System.Windows.Forms.Button
 
 End Class
