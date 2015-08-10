@@ -3,10 +3,10 @@
     Public Property Households_ID As Integer
     Public Property FirstName As String = ""
     Public Property LastName As String = ""
-    Public Property DateOfBirth As Date = Now
+    Public Property DateOfBirth As Date = Now.AddDays(-1)
     Public Property Age As Integer
     Public Property Spouse_ID As Integer
-    Public Property AnniversaryDate As Date = Now
+    Public Property AnniversaryDate As Date = Now.AddDays(-1)
     Public Property Baptized As Boolean
     Public Property Salvation As Boolean
     Public Property ShareInformation As Boolean
@@ -17,7 +17,7 @@
     Public Property HavePastorContact As Boolean
     Public Property MemberActive As Boolean
     Public Property MemberArchived As Boolean
-    Public Property JoinedChurch As Date = Now
+    Public Property JoinedChurch As Date = Now.AddDays(-1)
 
     Public Sub Member()
         Dim numberGenerator As New Random()
